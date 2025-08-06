@@ -1,0 +1,42 @@
+.divAnimationSobre {
+    margin-top: 4.8vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 1vh 1.3vh;
+
+    .animationSobre {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        gap: 1.7vh;
+
+        .text {
+            width: 100%;
+            color: red;
+            display: flex;
+            flex-direction: row;
+            white-space: nowrap;
+            font-size: 1.57vh;
+            font-weight: 800;
+
+            text {
+                margin: 0;
+
+                &:first-child {
+                    color: white;
+                }
+
+                &:not(:first-child) {
+                    width: fit-content;
+                    margin-left: 1.55vh;
+                }
+            }
+
+            &:
+        }
+
+    }
+}

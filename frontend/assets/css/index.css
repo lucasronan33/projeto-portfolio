@@ -1,0 +1,38 @@
+@font-face {
+    font-family: 'JetBrains Regular';
+    src: url('../fonts/JetBrainsMono[wght].ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'JetBrains Italic';
+    src: url('../fonts/JetBrainsMono-Italic[wght].ttf') format('truetype');
+    font-style: italic;
+}
+
+* {
+    padding: 0;
+    margin: 0 auto;
+    box-sizing: border-box;
+    font-family: "JetBrains Regular";
+}
+
+body {
+    width: 100vw;
+    height: 500vh;
+    background-image: url(../img/wireframepng.png);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+
+    * {
+        /* background-color: red;
+        opacity: 0.75; */
+    }
+
+    .header {
+        width: 90%;
+        height: 82vh;
+        margin-top: 2vh;
+    }
+
+}

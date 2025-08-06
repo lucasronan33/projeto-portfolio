@@ -5,7 +5,7 @@ const routes = require('./src/routes')
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
-app.use('/css', express.static(path.resolve(__dirname, 'frontend')))
+app.use(express.static(path.resolve(__dirname, 'frontend', 'assets')))
 
 app.set('views', path.resolve(__dirname, 'src', 'views'))
 app.set('view engine', 'ejs')
