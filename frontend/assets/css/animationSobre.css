@@ -32,10 +32,20 @@
                 &:not(:first-child) {
                     width: fit-content;
                     margin-left: 1.55vh;
+                    color: #3A96DD;
+                    font-family: 'JetBrains Italic';
+                }
+
+                &:not(:first-child, :last-child) {
+                    color: #FEF08A;
                 }
             }
 
-            &:
+            &:last-child {
+                :first-child {
+                    color: #FEF08A;
+                }
+            }
         }
 
     }

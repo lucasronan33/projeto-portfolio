@@ -6,7 +6,6 @@
 @font-face {
     font-family: 'JetBrains Italic';
     src: url('../fonts/JetBrainsMono-Italic[wght].ttf') format('truetype');
-    font-style: italic;
 }
 
 * {
