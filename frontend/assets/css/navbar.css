@@ -12,28 +12,19 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        color: white;
+        color: gray;
         font-size: 1.3vh;
     }
 
-    .btnSobre::before {
-        content: 'Sobre';
+    *:hover::before {
+        color: white;
     }
 
-    .btnSobre:hover::before {
-        content: '> Sobre';
+    *::before {
+        content: attr(data-text);
     }
 
-    .btnTrabalhos::before {
-        content: 'Trabalhos';
+    *:hover::before {
+        content: '> ' attr(data-text);
     }
-
-    .btnGaleria::before {
-        content: 'Galeria';
-    }
-
-    .btnContato::before {
-        content: 'Contato';
-    }
-
 }
