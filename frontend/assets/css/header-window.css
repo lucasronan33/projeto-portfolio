@@ -1,57 +1,151 @@
-.header-window {
-    width: 100%;
-    height: 7vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    background-color: blue;
-
-    * {
-        margin: 0;
-    }
-
-    .titulo-aba {
-        width: 26.5%;
-        margin-left: 2vh;
-        height: 50%;
+* {
+    .header-window {
+        width: 100%;
+        height: 7vh;
         display: flex;
+        align-items: center;
+        justify-content: space-between;
 
-        background-color: red;
-
-        .vs-logo {
-            width: 4vh;
-            height: 100%;
-
-            background-color: blue;
-        }
-
-        .name-window {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            font-size: smaller;
-            color: white;
-
-            background-color: blue;
-        }
-    }
-
-    .divControlesAba {
-        width: 43%;
-        height: 100%;
-        display: flex;
-
-        background-color: red;
+        background-color: blue;
 
         * {
-            width: calc(100%/3);
-            height: 100%;
+            margin: 0;
+        }
 
-            &:active {
-                background-color: grey;
+        .titulo-aba {
+            width: 26.5%;
+            margin-left: 2vh;
+            height: 50%;
+            display: flex;
+
+            background-color: red;
+
+            .vs-logo {
+                width: 4vh;
+                height: 100%;
+
+                background-color: blue;
+            }
+
+            .name-window {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                font-size: smaller;
+                color: white;
+
+                background-color: blue;
             }
         }
+
+        .divControlesAba {
+            width: 43%;
+            height: 100%;
+            display: flex;
+
+            background-color: red;
+
+            * {
+                width: calc(100%/3);
+                height: 100%;
+
+                &:active {
+                    background-color: grey;
+                }
+            }
+        }
+    }
+
+    .content {
+        width: 100%;
+        margin-top: 6.4vh;
+        display: flex;
+
+        .numeros-lateral {
+            width: 3vh;
+            height: fit-content;
+            display: flex;
+            flex-direction: column;
+            gap: 5vh;
+
+            background-color: red;
+
+            * {
+                width: 100%;
+                margin: auto;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                gap: 1.5vh;
+
+                background-color: green;
+
+                p {
+                    width: 100%;
+                    height: 2.5vh;
+                    text-align: right;
+                    color: red;
+                    font-size: 1.5vh;
+                    line-height: 2vh;
+
+                    background-color: blue;
+                }
+            }
+        }
+
+        .content-window {
+            display: flex;
+            row-gap: 5vh;
+            flex-direction: column;
+            padding-left: 1vh;
+
+            * {
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+
+                .tag {
+                    height: 2.5vh;
+                    display: flex;
+                    align-items: center;
+                    flex-direction: row;
+                    color: red;
+                    font-size: 2vh;
+                    line-height: 2vh;
+                    font-weight: bold;
+
+                    background-color: green;
+
+                    .cor-tag {
+                        color: blue;
+                    }
+
+                    .cor-rosa {
+                        color: red;
+                    }
+
+                    .cor-verde {
+                        color: cyan;
+                    }
+
+                    .cor-amarelo {
+                        color: goldenrod;
+                    }
+
+                    p {
+                        padding-left: 3.5vh;
+                        font-size: 1.5vh;
+                        font-family: "JetBrains Regular";
+                    }
+                }
+
+                .tag-break-line {
+                    width: 100%;
+                    height: 1.5vh;
+                }
+            }
+        }
+
     }
 }
