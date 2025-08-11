@@ -3,6 +3,7 @@
     height: 100vh;
 
     border: 1px solid red;
+    background-image: url(../img/Sobre.png);
     opacity: 0.5;
 
     .numeros-lateral {
@@ -13,6 +14,7 @@
     }
 
     .content {
+        opacity: 0.7;
 
         .content-window-sobre {
 
@@ -20,7 +22,6 @@
                 display: flex;
                 flex-direction: row;
                 align-items: center;
-                margin-block: calc((7.1vh - 4vh) / 2);
                 margin-left: 0.75vh;
                 padding-left: 3.5vh;
                 border-left: 0.5vh solid red;
@@ -30,8 +31,18 @@
                 background-color: blue;
             }
 
+            .texto-sobre-olaMundo {
+                flex-direction: column;
+                align-items: start;
+
+                p {
+                    font-family: 'JetBrains ExtraBold';
+                }
+            }
+
             .texto-sobre-titulo {
                 height: 4vh;
+                margin-block: calc((7.1vh - 4vh) / 2);
                 font-size: 6vh;
                 font-weight: bolder;
                 line-height: 6vh;
@@ -44,7 +55,7 @@
                 font-family: "JetBrains Regular";
                 font-size: 1.5vh;
                 line-height: 2.5vh;
-                gap: 1.5vh;
+                /* gap: 1.5vh; */
 
 
             }
