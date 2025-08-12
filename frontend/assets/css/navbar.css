@@ -5,16 +5,13 @@
     display: flex;
     justify-content: space-around;
 
-    background: blue;
-    opacity: 0.7;
-
     * {
         width: 22%;
         height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: gray;
+        color: rgba(255, 255, 255, 0.5);
         font-size: 1.3vh;
     }
 
