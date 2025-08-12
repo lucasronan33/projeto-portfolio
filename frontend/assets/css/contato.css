@@ -8,4 +8,22 @@
     background-position: top;
     background-size: cover;
     opacity: 0.7;
+
+    .tag {
+        * {
+            font-size: 1vh;
+            line-height: 1;
+        }
+
+        .input-contato {
+            flex-direction: row;
+
+            input[type='text'] {
+                outline: none;
+                background-color: rgba(255, 255, 255, 0.3);
+                border: 0;
+                border-radius: 0.25vh;
+            }
+        }
+    }
 }

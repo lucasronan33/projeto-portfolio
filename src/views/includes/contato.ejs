@@ -42,5 +42,155 @@
       </div>
 
     </div>
+
+    <form action="/sendmail" method="post" class="content-window content-window-contato">
+      <div class="header-contato">
+
+        <div class="tag">
+          <div class="cor-rosa"> const </div>
+
+          <div class="cor-branco"> &nbsp;nodemailer </div>
+          <div class="cor-rosa"> &nbsp;= </div>
+          <div class="cor-verde"> &nbsp;require </div>
+          <div class="cor-laranja"> ( </div>
+          <div class="cor-amarelo"> 'nodemailer' </div>
+          <div class="cor-laranja"> ) </div>
+        </div>
+
+        <div class="tag">
+          <div class="cor-rosa"> const </div>
+
+          <div class="cor-roxo"> &nbsp;smtpConfig </div>
+          <div class="cor-rosa"> &nbsp;= </div>
+          <div class="cor-verde"> &nbsp;{ </div>
+        </div>
+
+        <div class="tag">
+          <div class="cor-ciano pad-1"> host </div>
+          <div class="cor-rosa"> : </div>
+          <div class="cor-amarelo"> &nbsp;********** </div>
+          <div class="cor-branco">
+            ,
+          </div>
+        </div>
+
+        <div class="tag">
+          <div class="cor-ciano pad-1"> port </div>
+          <div class="cor-rosa"> : </div>
+          <div class="cor-amarelo"> &nbsp;********** </div>
+          <div class="cor-branco"> , </div>
+        </div>
+
+        <div class="tag">
+          <div class="cor-ciano pad-1"> auth </div>
+          <div class="cor-rosa"> : </div>
+          <div class="cor-roxo"> &nbsp;{ </div>
+        </div>
+
+        <div class="tag pad-2">
+          <div class="cor-ciano pad-1"> user </div>
+          <div class="cor-rosa"> : </div>
+          <div class="cor-roxo"> &nbsp;****** </div>
+          <div class="cor-ciano"> &nbsp;****** </div>
+        </div>
+
+        <div class="tag pad-2">
+          <div class="cor-ciano pad-1"> pass </div>
+          <div class="cor-rosa"> : </div>
+          <div class="cor-roxo"> &nbsp;****** </div>
+          <div class="cor-ciano"> &nbsp;****** </div>
+        </div>
+
+        <div class="tag">
+          <div class="cor-roxo pad-1"> } </div>
+        </div>
+
+        <div class="tag">
+          <div class="cor-verde"> } </div>
+        </div>
+
+        <div class="tag">
+          <div class="cor-rosa">const</div>
+          <div class="cor-roxo">&nbsp;transporter</div>
+          <div class="cor-rosa">&nbsp;=</div>
+          <div class="cor-ciano">&nbsp;nodemailer</div>
+          <div class="cor-rosa">.</div>
+          <div class="cor-verde">createTransport(</div>
+          <div class="cor-roxo">smtpConfig</div>
+          <div class="cor-verde">)</div>
+        </div>
+
+        <div class="tag">
+          <div class="cor-rosa">const</div>
+          <div class="cor-roxo">&nbsp;mailOptions</div>
+          <div class="cor-rosa">&nbsp;=</div>
+          <div class="cor-verde">&nbsp;{</div>
+        </div>
+
+        <div class="tag">
+          <div class="cor-ciano pad-1">to</div>
+          <div class="cor-rosa">:</div>
+          <div class="cor-amarelo">&nbsp;'lucasronan33@gmail.com'</div>
+        </div>
+
+        <div class="tag">
+          <div class="cor-ciano pad-1">from</div>
+          <div class="cor-rosa">:</div>
+          <div class="cor-roxo">&nbsp;{</div>
+        </div>
+
+        <div class="tag pad-2">
+          <div class="cor-ciano pad-1">address</div>
+          <div class="cor-rosa">:&nbsp;</div>
+          <div class="input-contato">
+            <div class="cor-amarelo">'</div>
+            <input type="text" name="remetente" id="email-remetente">
+            <div class="cor-amarelo">'</div>
+          </div>
+          <div class="cor-branco">,</div>
+        </div>
+
+        <div class="tag pad-2">
+          <div class="cor-ciano pad-1">name</div>
+          <div class="cor-rosa">:&nbsp;</div>
+          <div class="input-contato">
+            <div class="cor-amarelo">'</div>
+            <input type="text" name="nomeRemetente" id="email-nome-remetente">
+            <div class="cor-amarelo">'</div>
+          </div>
+          <div class="cor-branco">,</div>
+        </div>
+
+        <div class="tag">
+          <div class="cor-roxo pad-1">}</div>
+          <div class="cor-branco">,</div>
+        </div>
+
+        <div class="tag">
+          <div class="cor-ciano pad-1">subject</div>
+          <div class="cor-rosa">:&nbsp;</div>
+          <div class="input-contato">
+            <div class="cor-amarelo">'</div>
+            <input type="text" name="subject" id="email-subject">
+            <div class="cor-amarelo">'</div>
+          </div>
+          <div class="cor-branco">,</div>
+        </div>
+
+        <div class="tag">
+          <div class="cor-ciano pad-1">message</div>
+          <div class="cor-rosa">:&nbsp;</div>
+          <div class="input-contato">
+            <div class="cor-amarelo">'</div>
+            <input type="text" name="message" id="email-message">
+            <div class="cor-amarelo">'</div>
+          </div>
+        </div>
+
+        <div class="tag">
+          <div class="cor-verde">}</div>
+        </div>
+
+      </div>
+    </form>
   </div>
-</div>

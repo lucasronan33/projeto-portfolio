@@ -1,3 +1,8 @@
+:root {
+    --fundo-janelas: #090C24;
+    --cor-bordas-linhas: #0C3356;
+}
+
 * {
     .header-window {
         width: 100%;
@@ -64,7 +69,6 @@
         width: 100%;
         margin-top: 1vh;
         display: flex;
-        opacity: 0.7;
 
         .numeros-lateral {
             height: fit-content;
@@ -73,7 +77,6 @@
             flex-direction: column;
             gap: 5vh;
 
-            background-color: red;
 
             * {
                 width: 100%;
@@ -83,17 +86,14 @@
                 flex-direction: column;
                 /* gap: 1.5vh; */
 
-                background-color: green;
 
                 p {
                     width: 100%;
                     height: 2.5vh;
                     text-align: right;
-                    color: red;
+                    color: var(--cor-bordas-linhas);
                     font-size: 1.5vh;
                     line-height: 2vh;
-
-                    background-color: blue;
                 }
             }
         }
@@ -103,6 +103,7 @@
             row-gap: 5vh;
             flex-direction: column;
             padding-left: 1vh;
+            background-color: var(--fundo-janelas);
 
             * {
                 display: flex;
@@ -119,29 +120,58 @@
                     line-height: 2vh;
                     font-weight: bold;
 
-                    background-color: green;
-
                     .cor-tag {
                         color: blue;
                     }
 
                     .cor-rosa {
-                        color: red;
+                        color: #FC4FB6;
                     }
 
                     .cor-verde {
-                        color: cyan;
+                        color: #43CD55;
                     }
 
                     .cor-amarelo {
-                        color: goldenrod;
+                        color: #FEF08A;
                     }
+
+                    .cor-laranja {
+                        color: #D9A70A;
+                    }
+
+                    .cor-branco {
+                        color: #FFFFFF;
+                    }
+
+                    .cor-ciano {
+                        color: #67E8F9;
+                    }
+
+                    .cor-roxo {
+                        color: #A369FF;
+                        font-weight: 900;
+                    }
+
 
                     p {
                         padding-left: 3.5vh;
                         font-size: 1.5vh;
                         font-family: "JetBrains Regular";
                     }
+                }
+
+                .pad-1 {
+                    height: 100%;
+                    justify-content: center;
+                    padding-left: 3vh;
+                    border-left: 1px solid var(--cor-bordas-linhas);
+                }
+
+                .pad-2 {
+                    justify-content: center;
+                    padding-left: 3vh;
+                    border-left: 1px solid var(--cor-bordas-linhas);
                 }
 
                 .tag-break-line {
