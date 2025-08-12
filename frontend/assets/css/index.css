@@ -18,24 +18,37 @@
     margin: 0;
     box-sizing: border-box;
     font-family: "JetBrains Regular";
+
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
 }
 
 body {
     width: 100vw;
-    background-image: url(../img/wireframepng.png);
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: cover;
+    /* background-image: url(../img/wireframepng.png); */
+    background-color: #0C0C0C;
 
     * {
         /* background-color: red;
         opacity: 0.75; */
     }
 
-    .header {
-        width: 90%;
-        height: 82vh;
-        margin-top: 2vh;
+    .btn-index,
+    .btn-reload {
+        width: 5vh;
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+        position: fixed;
+        right: 2vh;
+        bottom: 2vh;
+        z-index: 999;
+
+        background-color: red;
+    }
+
+    .btn-reload {
+        bottom: 9vh;
     }
 
 }
