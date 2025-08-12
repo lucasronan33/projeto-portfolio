@@ -1,6 +1,14 @@
 :root {
     --fundo-janelas: #090C24;
     --cor-bordas-linhas: #0C3356;
+    --rosa: #FC4FB6;
+    --verde: #43CD55;
+    --amarelo: #FEF08A;
+    --laranja: #D9A70A;
+    --branco: #FFFFFF;
+    --ciano: #67E8F9;
+    --roxo: #A369FF;
+    --tag: var(--cor-bordas-linhas);
 }
 
 * {
@@ -99,6 +107,7 @@
         }
 
         .content-window {
+            width: 100%;
             display: flex;
             row-gap: 5vh;
             flex-direction: column;
@@ -121,35 +130,35 @@
                     font-weight: bold;
 
                     .cor-tag {
-                        color: blue;
+                        color: var(--tag);
                     }
 
                     .cor-rosa {
-                        color: #FC4FB6;
+                        color: var(--rosa);
                     }
 
                     .cor-verde {
-                        color: #43CD55;
+                        color: var(--verde);
                     }
 
                     .cor-amarelo {
-                        color: #FEF08A;
+                        color: var(--amarelo);
                     }
 
                     .cor-laranja {
-                        color: #D9A70A;
+                        color: var(--laranja);
                     }
 
                     .cor-branco {
-                        color: #FFFFFF;
+                        color: var(--branco);
                     }
 
                     .cor-ciano {
-                        color: #67E8F9;
+                        color: var(--ciano);
                     }
 
                     .cor-roxo {
-                        color: #A369FF;
+                        color: var(--roxo);
                         font-weight: 900;
                     }
 
