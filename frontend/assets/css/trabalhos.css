@@ -2,17 +2,12 @@
     width: 100%;
     height: 100vh;
 
-    background-color: red;
-    background-image: url(../img/Trabalhos.png);
-    opacity: 0.7;
-
     * {
         display: flex;
     }
 
     .titulo-trabalhos {
         padding-top: 4vh;
-        opacity: 0.7;
 
         * {
             align-items: end;
@@ -22,7 +17,6 @@
         :first-child {
             font-size: 1.5vh;
             color: white;
-            background-color: blue;
         }
 
         :last-child {
@@ -30,35 +24,31 @@
             line-height: 1;
             font-family: "JetBrains ExtraBold";
             color: white;
-            background-color: green;
         }
 
     }
 
     .content-trabalhos {
         flex-direction: column;
-        opacity: 0.7;
 
         .colunas-trabalhos {
             width: 95%;
             margin: auto;
+            padding-bottom: 2vh;
             display: grid;
             gap: 1.5vh;
             grid-template-columns: 7vh 15vh auto;
 
-            background-color: greenyellow;
 
 
             div {
                 width: 100%;
                 flex-direction: column;
                 align-items: start;
-                justify-content: end;
-                color: red;
+                justify-content: start;
+                color: white;
                 line-height: 1;
 
-                background-color: blue;
-                border: 1px solid green;
             }
 
             * {

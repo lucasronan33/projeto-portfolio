@@ -1,12 +1,13 @@
-.divAnimationSobre {
+.divAnimation {
+    height: 100vh;
     margin-top: 4.8vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
     padding: 1vh 1.3vh;
 
-    .animationSobre {
+    .animation {
         width: 100%;
         display: flex;
         flex-direction: column;

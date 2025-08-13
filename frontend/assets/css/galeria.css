@@ -1,11 +1,6 @@
 .galeria {
     width: 100%;
 
-    background-image: url(../img/wireframe-carrossel.png);
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: cover;
-
     .content {
         .numeros-lateral {
             div:nth-of-type(3) {
@@ -61,10 +56,37 @@
             }
 
             .carrossel-galeria {
-                width: 100%;
-                height: calc(37.5vh + 5vh);
+                .carrossel-galeria-content {
+                    width: 100%;
+                    height: calc(37.5vh + 5vh);
+                    gap: 1.5vh;
+                    justify-content: start;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    overflow: scroll;
 
-                background-color: green;
+                    .cel-galeria {
+                        width: calc(65% - (1.5vh / 2));
+                        height: calc(50% - (1.5vh / 2));
+                        align-self: stretch;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 1.5vh;
+
+                        background-color: rgba(12, 51, 86, 0.35);
+
+                        img {
+                            border-radius: 1vh;
+                            max-width: 90%;
+                            max-height: 90%;
+                        }
+
+                        .filtros-tag {
+                            display: none;
+                        }
+                    }
+                }
+
             }
         }
     }

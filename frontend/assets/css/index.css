@@ -1,3 +1,16 @@
+:root {
+    --fundo-janelas: #090C24;
+    --cor-bordas-linhas: #0C3356;
+    --rosa: #FC4FB6;
+    --verde: #43CD55;
+    --amarelo: #FEF08A;
+    --laranja: #D9A70A;
+    --branco: #FFFFFF;
+    --ciano: #67E8F9;
+    --roxo: #A369FF;
+    --tag: var(--cor-bordas-linhas);
+}
+
 @font-face {
     font-family: 'JetBrains Regular';
     src: url('../fonts/JetBrainsMono[wght].ttf') format('truetype');
@@ -40,11 +53,20 @@ body {
         aspect-ratio: 1 / 1;
         border-radius: 50%;
         position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         right: 2vh;
         bottom: 2vh;
         z-index: 999;
 
-        background-color: red;
+        color: rgba(255, 255, 255, 0.35);
+        font-family: 'JetBrains ExtraBold';
+        font-size: 3vh;
+        line-height: 1;
+        transform: rotate(-90deg);
+
+        background-color: rgba(12, 51, 86, 0.35);
     }
 
     .btn-reload {
