@@ -1,7 +1,12 @@
+require('dotenv').config()
 const path = require('path')
 const express = require('express')
 const app = express()
 const routes = require('./src/routes')
+const mongoose = require('mongoose')
+
+mongoose.connect(process.env.CONNECTIONSTRING).then(() => { app.emit('ready') })
+    .catch(e => { console.log(e) })
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
@@ -13,8 +18,8 @@ app.set('view engine', 'ejs')
 app.use(routes)
 
 
-// app.on('pronto', () => {
-app.listen(3000, () => {
-    console.log('Acessar http://localhost:3000');
+app.on('ready', () => {
+    app.listen(3000, () => {
+        console.log('Acessar http://localhost:3000');
+    });
 });
-// });
