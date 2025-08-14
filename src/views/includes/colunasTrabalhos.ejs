@@ -11,3 +11,19 @@
     <p>Solicitação-ARTE</p>
   </div>
 </div>
+
+<%trabalhos.forEach(trabalho=>{%>
+<div class="colunas-trabalhos">
+  <div class="data">
+    <p><%=trabalho.data%></p>
+  </div>
+
+  <div class="tipo">
+    <p><%=trabalho.tipo%></p>
+  </div>
+
+  <div class="nome">
+    <p><%=trabalho.nome%></p>
+  </div>
+</div>
+<%})%>

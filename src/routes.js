@@ -1,9 +1,9 @@
-const express = require('express')
-const route = express.Router()
-const homeController = require('./controllers/homeController')
+const express = require("express");
+const route = express.Router();
+const homeController = require("./controllers/homeController");
 
-route.get('/', homeController.index)
-route.get('/cadastrarTrabalho', homeController.cadastro)
-// route.post('/sendTrabalho', homeController.sendCadastro)
+route.get("/", homeController.index);
+route.get("/cadastrarTrabalho", homeController.cadastro);
+route.post("/sendTrabalho", homeController.sendTrabalho);
 
-module.exports = route
+module.exports = route;

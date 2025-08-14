@@ -16,6 +16,16 @@
     <button type="submit">Cadastrar</button>
 
   </form>
+  <%trabalhos.forEach(trabalho=>{%>
+  <table>
+    <tr>
+      <td><%=trabalho.data%></td>
+      <td><%=trabalho.tipo%></td>
+      <td><%=trabalho.nome%></td>
+    </tr>
+    <%})%>
+  </table>
+  
 </body>
 
 </html>
