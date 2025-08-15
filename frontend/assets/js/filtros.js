@@ -2,27 +2,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const divFiltros = document.querySelectorAll('.cel-filtros')
 
-    const filtrosSelecionados = []
+    const celGaleria = document.querySelectorAll('.cel-galeria')
+
     // estilização filtros, marca/desmarca checkbox oculta
     divFiltros.forEach(div => {
-        console.log('div: ', div)
         div.addEventListener('click', e => {
-            console.log(e.target)
-            console.log('divclick')
+
+            let filtrosSelecionados = []
 
             const checkbox = div.querySelector('input')
-            checkbox.checked === true ? checkbox.checked = false : checkbox.checked = true
+            if (checkbox.checked === true) {
+                checkbox.checked = false
 
-            console.log(div.textContent.trim())
+                filtrosSelecionados.forEach(divSelecionada => { divSelecionada.style.display = 'flex' })
+                console.log(filtrosSelecionados)
 
-            const celGaleria = document.querySelectorAll('.cel-galeria')
+            } else {
+                checkbox.checked = true
 
-            celGaleria.forEach(divGaleria => {
+                celGaleria.forEach(divGaleria => {
+                    const cleanTextDiv = div.textContent.trim()
+                    if (divGaleria.className.indexOf(cleanTextDiv) === -1) {
+                        filtrosSelecionados.push(divGaleria)
+                    }
+                })
 
-                if (divGaleria.textContent.indexOf(div.textContent.trim()) !== div.textContent.trim()) {
-                    console.log(divGaleria.style.display)
-                }
-            })
+                filtrosSelecionados.forEach(divSelecionada => { divSelecionada.style.display = 'none' })
+                console.log('filtrosSelecionados: ', filtrosSelecionados)
+                return filtrosSelecionados
+            }
 
         })
     })
