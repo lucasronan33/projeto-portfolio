@@ -30,11 +30,11 @@ function scrollInto(div, alvo) {
     })
 }
 
-document.addEventListener(
-    'click', e => {
-        console.log('e.target: ', e.target)
-    }
-)
+// document.addEventListener(
+//     'click', e => {
+//         console.log('e.target: ', e.target)
+//     }
+// )
 
 // BUTTON DE RELOAD
 // BUTTON TEMPORARIO

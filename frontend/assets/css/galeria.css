@@ -38,6 +38,14 @@
                         text-align: center;
                         color: white;
 
+                        input:checked+.fundo-logo-filtro {
+                            background-color: #0C3356;
+                        }
+
+                        input {
+                            display: none;
+                        }
+
                         .fundo-logo-filtro {
                             width: 4.5vh;
                             aspect-ratio: 1 / 1;
@@ -81,7 +89,8 @@
                             max-height: 90%;
                         }
 
-                        .filtros-tag {
+                        .filtros-tag,
+                        input {
                             display: none;
                         }
                     }
