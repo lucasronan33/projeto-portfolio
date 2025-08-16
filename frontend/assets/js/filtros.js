@@ -5,31 +5,55 @@ document.addEventListener('DOMContentLoaded', () => {
     const celGaleria = document.querySelectorAll('.cel-galeria')
 
     // estilização filtros, marca/desmarca checkbox oculta
-    divFiltros.forEach(div => {
-        div.addEventListener('click', e => {
+    let filtrosSelecionados = []
+    let tagsAtivas = []
+    divFiltros.forEach(divFiltro => {
+        divFiltro.addEventListener('click', () => {
 
-            let filtrosSelecionados = []
-
-            const checkbox = div.querySelector('input')
+            const checkbox = divFiltro.querySelector('input')
             if (checkbox.checked === true) {
                 checkbox.checked = false
 
-                filtrosSelecionados.forEach(divSelecionada => { divSelecionada.style.display = 'flex' })
-                console.log(filtrosSelecionados)
+                const cleanTextDivFiltro = divFiltro.textContent.trim()
 
+                tagsAtivas = tagsAtivas.filter(filtro => {
+                    if (filtro === cleanTextDivFiltro) {
+                        return false
+                    }
+                    return true
+                })
+
+                console.log('filtroDesmarcado: ', cleanTextDivFiltro)
+
+                celGaleria.forEach(divGaleria => {
+                    tagsAtivas.forEach(tag => {
+                        if (divGaleria.className.includes(tag)) {
+                            divGaleria.style.display = 'flex'
+                        } else {
+                            divGaleria.style.display = 'none'
+
+                        }
+                    })
+                    if (tagsAtivas.length === 0) {
+                        divGaleria.style.display = 'flex'
+                    }
+                })
+
+                console.log('divGaleria (pos-if): ', tagsAtivas)
             } else {
                 checkbox.checked = true
 
                 celGaleria.forEach(divGaleria => {
-                    const cleanTextDiv = div.textContent.trim()
-                    if (divGaleria.className.indexOf(cleanTextDiv) === -1) {
-                        filtrosSelecionados.push(divGaleria)
+                    const cleanTextDivFiltro = divFiltro.textContent.trim()
+                    if (!divGaleria.className.includes(cleanTextDivFiltro)) {
+
+                        !tagsAtivas.includes(cleanTextDivFiltro) ? tagsAtivas.push(cleanTextDivFiltro) : {}
+                        divGaleria.style.display = 'none'
+
                     }
                 })
 
-                filtrosSelecionados.forEach(divSelecionada => { divSelecionada.style.display = 'none' })
-                console.log('filtrosSelecionados: ', filtrosSelecionados)
-                return filtrosSelecionados
+                console.log('divsFiltradas: ', tagsAtivas)
             }
 
         })

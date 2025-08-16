@@ -1,0 +1,70 @@
+:root {
+    --fundo-janelas: #090C24;
+    --cor-bordas-linhas: #0C3356;
+    --rosa: #FC4FB6;
+    --verde: #43CD55;
+    --amarelo: #FEF08A;
+    --laranja: #D9A70A;
+    --branco: #FFFFFF;
+    --ciano: #67E8F9;
+    --roxo: #A369FF;
+    --tag: var(--cor-bordas-linhas);
+}
+
+span {
+    position: fixed;
+    width: 100dvw;
+    height: 100dvh;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    * {
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    background-color: rgba(0, 0, 0, 0.9);
+
+    .content-fullscreen {
+        width: 90vw;
+        height: 90vh;
+
+        border-radius: 3vh;
+        background-color: var(--fundo-janelas);
+        color: var(--branco);
+
+        .content-container {
+            width: 90%;
+            height: 95%;
+            flex-direction: column;
+            justify-content: start;
+            gap: 2.5vh;
+
+            img {
+                max-width: 100%;
+                max-height: 50%;
+                border-radius: 1vh;
+
+                z-index: 999;
+            }
+
+            content {
+                height: 100%;
+                flex-direction: column;
+                justify-self: stretch;
+                align-self: stretch;
+                justify-content: space-between;
+
+                .descricao-projeto {
+                    display: block;
+                }
+            }
+        }
+    }
+}

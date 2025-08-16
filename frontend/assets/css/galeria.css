@@ -74,7 +74,7 @@
                     overflow: scroll;
 
                     .cel-galeria {
-                        width: calc(65% - (1.5vh / 2));
+                        width: 45vw;
                         height: calc(50% - (1.5vh / 2));
                         align-self: stretch;
                         align-items: center;
