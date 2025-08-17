@@ -154,35 +154,35 @@
             <div class="cel-filtros">
               <input type="checkbox" name="" id="">
               <div class="fundo-logo-filtro">
-                <img src="img/logos/JAVASCRIPT.png" alt="" srcset="">
+                <img src="img/logos/javascript.png" alt="" srcset="">
               </div>
               JAVASCRIPT
             </div>
             <div class="cel-filtros">
               <input type="checkbox" name="" id="">
               <div class="fundo-logo-filtro">
-                <img src="img/logos/NODEJS.png" alt="" srcset="">
+                <img src="img/logos/nodejs.png" alt="" srcset="">
               </div>
-              NODE.JS
+              NODEJS
             </div>
             <div class="cel-filtros">
               <input type="checkbox" name="" id="">
               <div class="fundo-logo-filtro">
-                <img src="img/logos/REACT.png" alt="" srcset="">
+                <img src="img/logos/react.png" alt="" srcset="">
               </div>
               REACT
             </div>
             <div class="cel-filtros">
               <input type="checkbox" name="" id="">
               <div class="fundo-logo-filtro">
-                <img src="img/logos/ELECTRON.png" alt="" srcset="">
+                <img src="img/logos/electron.png" alt="" srcset="">
               </div>
               ELECTRON
             </div>
             <div class="cel-filtros">
               <input type="checkbox" name="" id="">
               <div class="fundo-logo-filtro">
-                <img src="img/logos/PYTHON.png" alt="" srcset="">
+                <img src="img/logos/python.png" alt="" srcset="">
               </div>
               PYTHON
             </div>
@@ -222,37 +222,17 @@
           <div class="carrossel-galeria-content pad-1">
             <!-- codigo carrossel com projetos  -->
 
-            <div class="cel-galeria HTML CSS JAVASCRIPT NODE.JS">
-              <img src="/img/thumbnail/solicitacao.png" alt="" srcset="">
+            <%trabalhos.forEach(trabalho=>{%>
+            <div class="cel-galeria <%=trabalho.tags%>" onclick="criarSpan(
+                '<%=trabalho.nome%>',
+                'img/thumbnail/<%=trabalho.linkImg%>.png',
+                `<%=trabalho.descricao%>`,
+                '<%=trabalho.linkgithub%>',
+                '<%=trabalho.linkprojeto%>',
+              )">
+              <img src='img/thumbnail/<%=trabalho.linkImg%>.png' data-title='<%=trabalho.nome%>' data-descricao='<%=trabalho.descricao%>' data-linkgithub='<%=trabalho.linkgithub%>' data-linkprojeto='<%=trabalho.linkprojeto%>'>
             </div>
-
-            <div class="cel-galeria HTML CSS JAVASCRIPT NODE.JS ELECTRON">
-              <img src="/img/thumbnail/nfe.png" alt="" srcset="">
-            </div>
-
-            <div class="cel-galeria PYTHON CSS">
-              <img src="/img/thumbnail/calc.png" alt="" srcset="">
-            </div>
-
-            <div class="cel-galeria HTML CSS JAVASCRIPT NODE.JS REACT">
-              <img src="/img/thumbnail/agenda.png" alt="" srcset="">
-            </div>
-
-            <div class="cel-galeria JAVASCRIPT REACT NODE.JS BATCH CEP ADOBE">
-              <img src="/img/thumbnail/pdf-v1.png" alt="" srcset="">
-            </div>
-
-            <div class="cel-galeria HTML CSS JAVASCRIPT NODE.JS CEP ADOBE">
-              <img src="/img/thumbnail/pdf-v2.png" alt="" srcset="">
-            </div>
-
-            <div class="cel-galeria HTML CSS JAVASCRIPT">
-              <img src="/img/thumbnail/weblayout.png" alt="" srcset="">
-            </div>
-
-            <div class="cel-galeria HTML CSS JAVASCRIPT">
-              <img src="/img/thumbnail/portfolioamanda.png" alt="" srcset="">
-            </div>
+            <%}) %>
 
           </div>
         </div>

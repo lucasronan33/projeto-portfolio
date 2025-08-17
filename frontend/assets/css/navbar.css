@@ -15,15 +15,12 @@
         font-size: 1.3vh;
     }
 
-    *:hover::before {
-        color: white;
-    }
-
     *::before {
         content: attr(data-text);
     }
 
     *:hover::before {
         content: '> ' attr(data-text);
+        color: white;
     }
 }

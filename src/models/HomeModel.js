@@ -3,7 +3,12 @@ const mongoose = require("mongoose");
 const HomeSchema = new mongoose.Schema({
     data: { type: String, required: true },
     tipo: { type: String, required: true },
-    nome: { type: String, required: true }
+    nome: { type: String, required: true },
+    tags: { type: String, required: true },
+    descricao: { type: String, required: true },
+    linkImg: { type: String, required: true },
+    linkgithub: { type: String, required: false },
+    linkprojeto: { type: String, required: false },
 });
 
 const HomeModel = new mongoose.model("trabalhos", HomeSchema);
@@ -17,10 +22,11 @@ class Home {
     async cadastrar() {
         await this.trabalhoExists();
         if (this.errors.length > 0) {
-          console.log(this.errors)
-          return};
+            console.log(this.errors)
+            return
+        };
 
-        this.trabalho =await HomeModel.create(this.body);
+        this.trabalho = await HomeModel.create(this.body);
     }
 
     async trabalhoExists() {
@@ -30,11 +36,16 @@ class Home {
         this.body = {
             nome: this.body.nome,
             data: this.body.data,
-            tipo: this.body.tipo
+            tipo: this.body.tipo,
+            tags: this.body.tags,
+            descricao: this.body.descricao,
+            linkImg: this.body.linkImg,
+            linkgithub: this.body.linkgithub,
+            linkprojeto: this.body.linkprojeto,
         };
     }
 
-static    async buscaTrabalhos() {
+    static async buscaTrabalhos() {
         const trabalho = await HomeModel.find().sort({ data: 1 });
         console.log(trabalho)
         return trabalho;

@@ -5,27 +5,65 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cadastrar trabalhos</title>
+
+  <style>
+    * {
+      font-family: 'Arial';
+    }
+
+    table {
+      width: 100%;
+
+      .tr-table {
+        font-family: "Arial";
+        color: black;
+        font-weight: bold;
+      }
+
+      tr {
+        color: gray;
+      }
+    }
+  </style>
 </head>
 
 <body>
   <form action="/sendTrabalho" method="post">
-    <input type="text" name="data" id="" placeholder="data"><br>
-    <input type="text" name="tipo" id="" placeholder="tipo"><br>
-    <input type="text" name="nome" id="" placeholder="nome"><br>
+    <input type="month" name="data" id="" placeholder="data" required><br>
+    <input type="text" name="tipo" id="" placeholder="tipo" required><br>
+    <input type="text" name="nome" id="" placeholder="nome" required><br>
+    <input type="text" name="linkImg" id="" placeholder="linkImg" required><br>
+    <input type="text" name="linkgithub" id="" placeholder="linkgithub"><br>
+    <input type="text" name="linkprojeto" id="" placeholder="linkprojeto"><br>
+    <input type="text" name="tags" id="" placeholder="tags" required><br>
+    <textarea name="descricao" id="" placeholder="descricao" required></textarea><br>
     <br>
     <button type="submit">Cadastrar</button>
 
   </form>
-  <%trabalhos.forEach(trabalho=>{%>
   <table>
+    <tr class="tr-table">
+      <td>Data:</td>
+      <td>Nome:</td>
+      <td>Tipo:</td>
+      <td>LinkImg:</td>
+      <td>LinkGithub:</td>
+      <td>Link Projeto:</td>
+      <td>Tags:</td>
+    </tr>
+    <%trabalhos.forEach(trabalho=>{%>
     <tr>
       <td><%=trabalho.data%></td>
       <td><%=trabalho.tipo%></td>
       <td><%=trabalho.nome%></td>
+      <td><%=trabalho.linkImg%></td>
+      <td><a href="<%=trabalho.linkgithub%>"><%=trabalho.linkgithub%></a></td>
+      <td><a href="<%=trabalho.linkprojeto%>"><%=trabalho.linkprojeto%></a></td>
+      <td><%=trabalho.tags%></td>
     </tr>
     <%})%>
   </table>
-  
+
 </body>
 
 </html>
