@@ -1,21 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
 
 
-    const celGaleria = document.querySelectorAll('.cel-galeria')
+  const celGaleria = document.querySelectorAll('.cel-galeria')
 
-    celGaleria.forEach(divGaleria => {
-        divGaleria.addEventListener('click', e => {
+  celGaleria.forEach(divGaleria => {
+    divGaleria.addEventListener('click', e => {
 
-        })
     })
+  })
 
 })
 
 function criarSpan(tituloDoProjeto, linkImg, descricaoProjeto, linkGithub, linkProjeto) {
-    const divFundoSpan = document.createElement("span");
-    divFundoSpan.classList.add("span-fullscreen");
+  const divFundoSpan = document.createElement("span");
+  divFundoSpan.classList.add("span-fullscreen");
 
-    divFundoSpan.innerHTML = `
+  divFundoSpan.innerHTML = `
       <div class="content-fullscreen">
         <div class="content-container">
           <h3>${tituloDoProjeto}</h3>
@@ -40,12 +40,12 @@ function criarSpan(tituloDoProjeto, linkImg, descricaoProjeto, linkGithub, linkP
       </div>
     `;
 
-    document.body.appendChild(divFundoSpan);
+  document.body.appendChild(divFundoSpan);
 
-    // fechar clicando fora do conteúdo
-    divFundoSpan.addEventListener("click", (event) => {
-        if (event.target === divFundoSpan) {
-            divFundoSpan.remove();
-        }
-    });
+  // fechar clicando fora do conteúdo
+  divFundoSpan.addEventListener("click", (event) => {
+    if (event.target === divFundoSpan) {
+      divFundoSpan.remove();
+    }
+  });
 }

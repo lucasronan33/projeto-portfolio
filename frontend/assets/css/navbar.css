@@ -4,6 +4,7 @@
     margin-inline: auto;
     display: flex;
     justify-content: space-around;
+    overflow: hidden;
 
     * {
         width: 22%;

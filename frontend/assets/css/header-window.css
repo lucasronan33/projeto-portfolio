@@ -50,20 +50,25 @@
         }
 
         .divControlesAba {
-            width: 43%;
             height: 100%;
             display: flex;
 
 
             * {
-                width: calc(100%/3);
-                height: 100%;
+                max-width: calc(100%/3);
+                max-height: 100%;
+                aspect-ratio: 1 / 1;
                 display: flex;
                 justify-content: center;
                 align-items: center;
 
                 &:active {
                     background-color: grey;
+                }
+
+                svg {
+                    max-height: 30%;
+                    max-width: 30%;
                 }
             }
         }

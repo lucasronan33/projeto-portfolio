@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const celGaleria = document.querySelectorAll('.cel-galeria')
 
     // estilização filtros, marca/desmarca checkbox oculta
-    let filtrosSelecionados = []
     let tagsAtivas = []
     divFiltros.forEach(divFiltro => {
         divFiltro.addEventListener('click', () => {

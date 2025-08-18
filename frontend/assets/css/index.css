@@ -38,7 +38,7 @@
 }
 
 body {
-    width: 100vw;
+    width: 100%;
     /* background-image: url(../img/wireframepng.png); */
     background-color: #0C0C0C;
 
@@ -58,7 +58,7 @@ body {
         justify-content: center;
         right: 2vh;
         bottom: 2vh;
-        z-index: 999;
+        z-index: 10;
 
         color: rgba(255, 255, 255, 0.35);
         font-family: 'JetBrains ExtraBold';

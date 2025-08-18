@@ -1,0 +1,61 @@
+.sobre {
+
+    .sobreMobile {
+        width: 100%;
+        height: 100vh;
+        background-color: #090C24;
+
+        .numeros-lateral {
+
+            :first-child {
+                gap: 2.3vh;
+            }
+        }
+
+        .content {
+
+            .content-window-sobre {
+
+                .texto-sobre {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    color: white;
+                    font-family: 'JetBrains ExtraBold';
+
+                }
+
+                .texto-sobre-olaMundo {
+                    flex-direction: column;
+                    align-items: start;
+
+                    p {
+                        font-family: 'JetBrains ExtraBold';
+                    }
+                }
+
+                .texto-sobre-titulo {
+                    height: 7.1vh;
+                    font-size: 6vh;
+                    font-weight: bolder;
+                    line-height: 1;
+                }
+
+                .texto-sobre-texto {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    justify-content: center;
+                    font-family: "JetBrains Regular";
+                    font-size: 1.5vh;
+                    line-height: 2.5vh;
+                    font-weight: 300;
+                    /* gap: 1.5vh; */
+
+
+                }
+            }
+
+        }
+    }
+}
