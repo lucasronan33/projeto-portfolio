@@ -50,6 +50,7 @@
         <p>18</p>
         <p>19</p>
         <p>20</p>
+        <p>21</p>
       </div>
 
     </div>
@@ -169,7 +170,7 @@
           <div class="cor-rosa">:&nbsp;</div>
           <div class="input-contato">
             <div class="cor-amarelo">'</div>
-            <input type="text" name="remetente" id="email-remetente" placeholder="insnira seu e-mail">
+            <input type="email" oninput="adjustInputSize(this)" name="remetente" id="email-remetente" placeholder="insnira seu e-mail">
             <div class="cor-amarelo">'</div>
           </div>
           <div class="cor-branco">,</div>
@@ -180,7 +181,7 @@
           <div class="cor-rosa">:&nbsp;</div>
           <div class="input-contato">
             <div class="cor-amarelo">'</div>
-            <input type="text" name="nomeRemetente" id="email-nome-remetente" placeholder="insira seu nome">
+            <input type="text" oninput="adjustInputSize(this)" name="nomeRemetente" id="email-nome-remetente" placeholder="insira seu nome">
             <div class="cor-amarelo">'</div>
           </div>
           <div class="cor-branco">,</div>
@@ -196,7 +197,7 @@
           <div class="cor-rosa">:&nbsp;</div>
           <div class="input-contato">
             <div class="cor-amarelo">'</div>
-            <input type="text" name="subject" id="email-subject" placeholder="motivo do contato">
+            <input type="text" oninput="adjustInputSize(this)" name="subject" id="email-subject" placeholder="motivo do contato">
             <div class="cor-amarelo">'</div>
           </div>
           <div class="cor-branco">,</div>
@@ -207,7 +208,7 @@
           <div class="cor-rosa">:&nbsp;</div>
           <div class="input-contato">
             <div class="cor-amarelo">'</div>
-            <input type="text" name="message" id="email-message" placeholder="digite sua mensagem">
+            <input type="text" oninput="adjustInputSize(this)" name="message" id="email-message" placeholder="digite sua mensagem">
             <div class="cor-amarelo">'</div>
           </div>
         </div>
@@ -216,7 +217,18 @@
           <div class="cor-verde">}</div>
         </div>
 
+        <div class="tag">
+          <input type="text" name="enviaremail" id="" placeholder="digite: 'node sendmail.js' e pressione ENTER para enviar">
+        </div>
+
       </div>
     </form>
   </div>
 </div>
+
+<script>
+  function adjustInputSize(element) {
+    element.style.width = (element.value.length + 1) + "ch";
+    element.style.background = 'none'
+  }
+</script>

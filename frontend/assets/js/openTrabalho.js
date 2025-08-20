@@ -17,6 +17,13 @@ function criarSpan(tituloDoProjeto, linkImg, descricaoProjeto, linkGithub, linkP
 
   divFundoSpan.innerHTML = `
       <div class="content-fullscreen">
+
+      <div class="close">
+        <svg width="55" height="54" viewBox="0 0 55 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M52.7367 1.86182L54.5033 3.63037L31.1136 26.9995L54.5023 50.3696L50.9691 53.9067L27.5765 30.5337L4.18494 53.9067L0.651733 50.3696L24.0394 26.9995L0.650757 3.63037L2.41736 1.86182L4.18494 0.0932617L27.5765 23.4653L50.9691 0.0932617L52.7367 1.86182Z" fill="white" />
+        </svg>
+      </div>
+
         <div class="content-container">
           <h3>${tituloDoProjeto}</h3>
           <img src="${linkImg}" alt="" srcset="">
@@ -41,11 +48,19 @@ function criarSpan(tituloDoProjeto, linkImg, descricaoProjeto, linkGithub, linkP
     `;
 
   document.body.appendChild(divFundoSpan);
+  document.body.classList.add('no-scroll')
 
   // fechar clicando fora do conteúdo
   divFundoSpan.addEventListener("click", (event) => {
     if (event.target === divFundoSpan) {
       divFundoSpan.remove();
+      document.body.classList.remove('no-scroll')
     }
   });
+
+  divFundoSpan.querySelector('.close').addEventListener('click', () => {
+
+    divFundoSpan.remove();
+    document.body.classList.remove('no-scroll')
+  })
 }

@@ -12,7 +12,8 @@
         .input-contato {
             flex-direction: row;
 
-            input[type='text'] {
+            input {
+                width: auto;
                 outline: none;
                 background-color: rgba(255, 255, 255, 0.3);
                 border: 0;
@@ -20,8 +21,48 @@
                 color: #FEF08A;
             }
 
-            input[type='text']:focus {
+            input:focus {
                 background: none;
+            }
+        }
+    }
+}
+
+@media(width>700px) {
+    .contato {
+        .numero {
+            p {
+                font-size: 2vh;
+                height: 4.5vh;
+            }
+        }
+
+        div.tag {
+            height: fit-content !important;
+
+            * {
+                align-items: center;
+                justify-content: center;
+                font-size: 2vh;
+                line-height: 4.5vh;
+                height: 4.5vh;
+                color: white;
+            }
+
+            input {
+                height: 90%;
+                min-width: 5ch;
+                border-radius: 2vh;
+            }
+
+            input[name='enviaremail'] {
+                width: 50vw;
+                height: 3vh;
+                padding-left: 2vh;
+                outline: none;
+                background-color: rgba(255, 255, 255, 0.3);
+                border: 0;
+                color: #FEF08A;
             }
         }
     }

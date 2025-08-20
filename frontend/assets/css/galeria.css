@@ -22,7 +22,6 @@
             .grid-filtros {
                 width: 100%;
                 height: 12.5vh;
-                padding-left: 7vw;
 
                 .div-cel-filtros {
                     flex-wrap: wrap;
@@ -64,15 +63,31 @@
             }
 
             .carrossel-galeria {
+                position: relative;
 
                 .seletores {
-                    position: absolute;
-                    z-index: 5;
-                    width: 100%;
-                    height: 300%;
+                    .btn-seletores {
+                        display: none;
+                        position: absolute;
+                        align-items: center;
+                        justify-content: center;
+                        z-index: 5;
+                        width: 5vw;
+                        height: 100%;
+                        color: white;
+                        cursor: pointer;
 
-                    background-color: red;
-                    opacity: 0.7;
+                        background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+                        opacity: 0.5;
+                    }
+
+                    .btn-voltar {
+                        left: 0;
+                    }
+
+                    .btn-avancar {
+                        right: 0;
+                    }
                 }
 
                 .carrossel-galeria-content {

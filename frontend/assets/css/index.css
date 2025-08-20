@@ -47,6 +47,10 @@ body {
         opacity: 0.75; */
     }
 
+    &.no-scroll {
+        overflow: hidden;
+    }
+
     .btn-index,
     .btn-reload {
         width: 5vh;
