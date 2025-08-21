@@ -12,7 +12,7 @@ const CadastrarTrabalhoSchema = new mongoose.Schema({
     linkprojeto: { type: String, required: false },
 })
 
-const CadastrarTrabalhoModel = new mongoose.model('user', CadastrarTrabalhoSchema)
+const CadastrarTrabalhoModel = new mongoose.model('trabalhos', CadastrarTrabalhoSchema)
 
 class CadastrarTrabalho {
     constructor(body) {
@@ -48,8 +48,8 @@ class CadastrarTrabalho {
     }
 
     static async buscaTrabalhos() {
-        const trabalho = await HomeModel.find().sort({ data: 1 });
-        console.log(trabalho)
+        const trabalho = await CadastrarTrabalhoModel.find().sort({ data: 1 });
+        // console.log(trabalho)
         return trabalho;
     }
 }

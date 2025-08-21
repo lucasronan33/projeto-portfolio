@@ -1,4 +1,6 @@
+const CadastrarTrabalho = require('../models/CadastrarTrabalhoModel')
+
 exports.index = async (req, res) => {
-    const trabalhos = await Home.buscaTrabalhos();
+    const trabalhos = await CadastrarTrabalho.buscaTrabalhos();
     res.render("index", { trabalhos });
 };

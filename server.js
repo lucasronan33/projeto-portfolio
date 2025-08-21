@@ -5,6 +5,7 @@ const express = require('express')
 const session = require('express-session')
 const app = express()
 const routes = require('./src/routes')
+const { middlewareLogin } = require('./src/middlewares/middleware')
 const mongoose = require('mongoose')
 
 mongoose.connect(process.env.CONNECTIONSTRING).then(() => { app.emit('ready') })
@@ -29,6 +30,7 @@ app.set('views', path.resolve(__dirname, 'src', 'views'))
 app.set('view engine', 'ejs')
 
 app.use(routes)
+app.use(middlewareLogin)
 
 
 app.on('ready', () => {
