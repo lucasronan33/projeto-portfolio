@@ -87,6 +87,7 @@ span.span-fullscreen {
 
                     * {
                         font-size: 1.7vh;
+                        white-space: pre-line;
                     }
                 }
 

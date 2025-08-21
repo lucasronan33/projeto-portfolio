@@ -1,6 +1,7 @@
-const mongoose = require("mongoose");
+require('dotenv').config
+const mongoose = require('mongoose')
 
-const HomeSchema = new mongoose.Schema({
+const CadastrarTrabalhoSchema = new mongoose.Schema({
     data: { type: String, required: true },
     tipo: { type: String, required: true },
     nome: { type: String, required: true },
@@ -9,10 +10,11 @@ const HomeSchema = new mongoose.Schema({
     linkImg: { type: String, required: true },
     linkgithub: { type: String, required: false },
     linkprojeto: { type: String, required: false },
-});
+})
 
-const HomeModel = new mongoose.model("trabalhos", HomeSchema);
-class Home {
+const CadastrarTrabalhoModel = new mongoose.model('user', CadastrarTrabalhoSchema)
+
+class CadastrarTrabalho {
     constructor(body) {
         this.body = body;
         this.trabalho = null;
@@ -51,4 +53,4 @@ class Home {
         return trabalho;
     }
 }
-module.exports = Home;
+module.exports = CadastrarTrabalho
