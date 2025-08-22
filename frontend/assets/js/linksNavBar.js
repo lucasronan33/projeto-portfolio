@@ -39,8 +39,8 @@ function scrollInto(div, alvo) {
 // BUTTON DE RELOAD
 // BUTTON TEMPORARIO
 
-const btnReload = document.querySelector('.btn-reload')
+// const btnReload = document.querySelector('.btn-reload')
 
-btnReload.addEventListener('click', e => {
-    window.location.reload()
-})
+// btnReload.addEventListener('click', e => {
+//     window.location.reload()
+// })

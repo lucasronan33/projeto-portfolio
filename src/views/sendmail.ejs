@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email enviado</title>
+
+  <style>
+    table {
+      * {
+        padding: 1vh;
+        text-align: left;
+        border: 1px solid black;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+  <table>
+    <th>nome</th>
+    <th>email</th>
+    <th>assunto</th>
+    <th>mensgem</th>
+    <tr>
+      <td><%=email.nome%></td>
+      <td><%=email.email%></td>
+      <td><%=email.assunto%></td>
+      <td><%=email.mensagem%></td>
+    </tr>
+  </table>
+</body>
+
+</html>

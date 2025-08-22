@@ -17,7 +17,7 @@ exports.sendTrabalho = async (req, res) => {
             return;
         }
 
-        res.redirect("cadastrarTrabalho");
+        res.redirect("/cadastrarTrabalho");
     } catch (e) {
         console.log(e);
         res.send(e);

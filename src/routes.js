@@ -5,7 +5,11 @@ const cadastrarTrabalhoController = require("./controllers/cadastrarTrabalhoCont
 const loginController = require("./controllers/loginController");
 const { middlewareLogin } = require('./middlewares/middleware')
 
+// rotas index
 route.get("/", homeController.index);
+route.post('/sendmail', homeController.sendmail)
+
+// rotas da area de cadastro de projetos
 route.get('/login', loginController.index)
 route.post('/cadastrarTrabalho/login', loginController.login)
 route.get("/cadastrarTrabalho", middlewareLogin, cadastrarTrabalhoController.cadastro);

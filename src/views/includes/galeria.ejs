@@ -242,18 +242,12 @@
 
           <div class="carrossel-galeria-content pad-1">
             <!-- codigo carrossel com projetos  -->
+            <% trabalhos.forEach(trabalho => { %>
+            <div class="cel-galeria <%=trabalho.tags%>" data-nome="<%=trabalho.nome%>" data-img="img/thumbnail/<%=trabalho.linkImg%>.png" data-descricao="<%=trabalho.descricao%>" data-linkgithub="<%=trabalho.linkgithub%>" data-linkprojeto="<%=trabalho.linkprojeto%>">
 
-            <%trabalhos.forEach(trabalho=>{%>
-            <div class="cel-galeria <%=trabalho.tags%>" onclick="criarSpan(
-                '<%=trabalho.nome%>',
-                'img/thumbnail/<%=trabalho.linkImg%>.png',
-                `<%=trabalho.descricao%>`,
-                '<%=trabalho.linkgithub%>',
-                '<%=trabalho.linkprojeto%>',
-              )">
-              <img src='img/thumbnail/<%=trabalho.linkImg%>.png' data-title='<%=trabalho.nome%>' data-descricao='<%=trabalho.descricao%>' data-linkgithub='<%=trabalho.linkgithub%>' data-linkprojeto='<%=trabalho.linkprojeto%>'>
+              <img src="img/thumbnail/<%=trabalho.linkImg%>.png" alt="<%=trabalho.nome%>">
             </div>
-            <%}) %>
+            <% }) %>
 
           </div>
         </div>

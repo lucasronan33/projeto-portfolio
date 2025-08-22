@@ -1,5 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+  document.querySelectorAll(".cel-galeria").forEach(div => {
+    div.addEventListener("click", () => {
+      const nome = div.dataset.nome;
+      const img = div.dataset.img;
+      const descricao = div.dataset.descricao;
+      const github = div.dataset.linkgithub;
+      const projeto = div.dataset.linkprojeto;
+
+      criarSpan(nome, img, descricao, github, projeto);
+    });
+  });
+
+
 
   const celGaleria = document.querySelectorAll('.cel-galeria')
 
