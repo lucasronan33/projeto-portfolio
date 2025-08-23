@@ -1,4 +1,4 @@
-require('dotenv')
+require('dotenv').config()
 const validator = require('validator')
 const nodemailer = require('nodemailer')
 

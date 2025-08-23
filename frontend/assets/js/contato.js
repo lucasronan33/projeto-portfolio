@@ -2,13 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const form = document.querySelector('.content-window-contato')
     const enviaremail = document.querySelector('input[name="enviaremail"]')
-    const inputs = document.querySelectorAll(['input[type="text"],input[name="remetente"]'])
+    const inputs = document.querySelectorAll(['input[type="text"], input[name="email"]'])
 
-    console.log(enviaremail)
 
     form.addEventListener('keydown', function (e) {
-
-        console.log(enviaremail.value)
 
         if (enviaremail.value === 'node sendmail.js' && e.key === 'Enter') {
             console.log(e.key)
@@ -24,10 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (input.name !== 'enviaremail') {
             input.addEventListener('input', e => {
 
-                console.log(e)
-
                 input.style.width = (input.value.length) + "ch";
-                input.style.background = 'none'
+                input.style.background = 'rgba(0,0,0,0)'
 
                 if (e.inputType === 'deleteContentBackward' && input.value.length < 1) {
                     input.removeAttribute('style')

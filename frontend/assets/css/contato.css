@@ -24,7 +24,27 @@
             input:focus {
                 background: none;
             }
+
+
         }
+    }
+
+    /* Remove o background e define a cor do texto para todos os inputs que o Chrome autofill */
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0px 1000px #090C24 inset !important;
+        /* fundo desejado */
+        -webkit-text-fill-color: #FEF08A !important;
+        /* cor do texto */
+        transition: background-color 5000s ease-in-out 0s !important;
+    }
+
+    /* Também pode adicionar para inputs em foco e todos os estados */
+    input:focus:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0px 1000px #090C24 inset !important;
+        -webkit-text-fill-color: #FEF08A !important;
     }
 }
 
