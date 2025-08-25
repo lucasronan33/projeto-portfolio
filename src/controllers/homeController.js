@@ -6,6 +6,9 @@ exports.index = async (req, res) => {
     res.render("index", { trabalhos });
 };
 
+exports.contato = (req, res) => {
+    res.render('contato')
+}
 exports.sendmail = async (req, res) => {
     try {
 

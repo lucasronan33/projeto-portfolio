@@ -9,6 +9,8 @@ const { middlewareLogin } = require('./middlewares/middleware')
 route.get("/", homeController.index);
 route.post('/sendmail', homeController.sendmail)
 
+route.get('/contato', homeController.contato)
+
 // rotas da area de cadastro de projetos
 route.get('/login', loginController.index)
 route.post('/cadastrarTrabalho/login', loginController.login)
