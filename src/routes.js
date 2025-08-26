@@ -9,6 +9,9 @@ const { middlewareLogin } = require('./middlewares/middleware')
 route.get("/", homeController.index);
 route.post('/sendmail', homeController.sendmail)
 
+route.get('/sobre', homeController.sobre)
+route.get('/trabalhos', homeController.trabalhos)
+route.get('/galeria', homeController.galeria)
 route.get('/contato', homeController.contato)
 
 // rotas da area de cadastro de projetos

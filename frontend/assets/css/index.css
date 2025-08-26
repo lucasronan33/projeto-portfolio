@@ -37,6 +37,46 @@
     background-size: cover;
 }
 
+.lazy-section {
+    height: 100vh;
+    color: white;
+}
+
+.loader {
+    width: fit-content;
+    border-right: 10px solid #fff;
+}
+
+/* Animação de "digitar" */
+@keyframes typing {
+    from {
+        border-right-color: #fff;
+    }
+
+    to {
+        border-right-color: transparent;
+    }
+
+    /* 12 caracteres = "Carregando..." */
+}
+
+@keyframes escala {
+    from {
+        scale: 0;
+    }
+
+    to {
+        scale: 1;
+    }
+}
+
+.sobre,
+.trabalhos,
+.galeria,
+.contato {
+    animation: escala 0.75s ease-out forwards;
+}
+
 body {
     width: 100%;
     /* background-image: url(../img/wireframepng.png); */

@@ -6,6 +6,20 @@ exports.index = async (req, res) => {
     res.render("index", { trabalhos });
 };
 
+exports.sobre = (req, res) => {
+    res.render('includes/sobre')
+}
+
+exports.trabalhos = async (req, res) => {
+    const trabalhos = await CadastrarTrabalho.buscaTrabalhos();
+    res.render('includes/trabalhos', { trabalhos })
+}
+
+exports.galeria = async (req, res) => {
+    const trabalhos = await CadastrarTrabalho.buscaTrabalhos();
+    res.render('includes/galeria', { trabalhos })
+}
+
 exports.contato = (req, res) => {
     res.render('includes/contato')
 }

@@ -26,30 +26,27 @@
   <div class="btn-index">&gt;</div>
 
   <%- include('includes/index-home') %>
-  <%- include('includes/animationSobre') %>
-  <%- include('includes/sobre') %>
-  <%- include('includes/animationTrabalhos') %>
-  <%- include('includes/trabalhos') %>
-  <%- include('includes/animationCarrossel') %>
-  <%- include('includes/galeria') %>
+
+  <section class="lazy-section" id="sobre" data-url="/sobre">
+    <%- include('includes/animationSobre') %>
+  </section>
+
+  <section class="lazy-section" id="trabalhos" data-url="/trabalhos">
+    <%- include('includes/animationTrabalhos') %>
+  </section>
+
+  <section class="lazy-section" id="galeria" data-url="/galeria">
+    <%- include('includes/animationGaleria') %>
+  </section>
 
   <section class="lazy-section" id="contato" data-url="/contato">
     <%- include('includes/animationContato') %>
-    <div class="loader"></div>
   </section>
-
-  <!-- <%- include('includes/contato') %> -->
-  <!-- <%- include('includes/galeria-fullscreen') %> -->
-
 
 
   <script src="js/linksNavBar.js"></script>
-  <script src="js/filtros.js"></script>
   <script src="js/header-window.js"></script>
-  <script src="js/openTrabalho.js"></script>
-  <script src="js/sobre.js"></script>
-  <script src="js/galeria-carrossel.js"></script>
-  <script src="js/contato.js"></script>
+  <script src="js/lazyLoading.js"></script>
 </body>
 
 </html>
