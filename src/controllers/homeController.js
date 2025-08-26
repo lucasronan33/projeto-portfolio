@@ -7,7 +7,7 @@ exports.index = async (req, res) => {
 };
 
 exports.contato = (req, res) => {
-    res.render('contato')
+    res.render('includes/contato')
 }
 exports.sendmail = async (req, res) => {
     try {

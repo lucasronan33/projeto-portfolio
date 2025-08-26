@@ -1,3 +1,19 @@
+.blink {
+    border-right: 1ch solid white;
+    animation: blink 0.6s step-start infinite;
+}
+
+.cursor {
+    border-right: 1ch solid white;
+}
+
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
 .divAnimation {
     height: 100vh;
     margin-top: 4.8vh;
@@ -6,6 +22,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     padding: 1vh 1.3vh;
+    color: white;
 
     .animation {
         width: 100%;
@@ -15,8 +32,7 @@
         gap: 1.7vh;
 
         .text {
-            width: 100%;
-            color: red;
+            width: fit-content;
             display: flex;
             flex-direction: row;
             white-space: nowrap;
@@ -26,25 +42,18 @@
             text {
                 margin: 0;
 
-                &:first-child {
-                    color: white;
-                }
-
                 &:not(:first-child) {
                     width: fit-content;
                     margin-left: 1.55vh;
+                }
+
+                &.text-amarelo {
+                    color: #FEF08A;
+                }
+
+                &.text-azul {
                     color: #3A96DD;
                     font-family: 'JetBrains Italic';
-                }
-
-                &:not(:first-child, :last-child) {
-                    color: #FEF08A;
-                }
-            }
-
-            &:last-child {
-                :first-child {
-                    color: #FEF08A;
                 }
             }
         }

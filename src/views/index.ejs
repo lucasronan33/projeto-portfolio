@@ -26,16 +26,16 @@
   <div class="btn-index">&gt;</div>
 
   <%- include('includes/index-home') %>
-  <!-- <%- include('includes/animationSobre') %> -->
+  <%- include('includes/animationSobre') %>
   <%- include('includes/sobre') %>
-  <!-- <%- include('includes/animationTrabalhos') %> -->
+  <%- include('includes/animationTrabalhos') %>
   <%- include('includes/trabalhos') %>
-  <!-- <%- include('includes/animationCarrossel') %> -->
+  <%- include('includes/animationCarrossel') %>
   <%- include('includes/galeria') %>
-  <!-- <%- include('includes/animationContato') %> -->
 
-  <section class="lazy-loading" id="contato">
-    <div class="loader">Carregando...</div>
+  <section class="lazy-section" id="contato" data-url="/contato">
+    <%- include('includes/animationContato') %>
+    <div class="loader"></div>
   </section>
 
   <!-- <%- include('includes/contato') %> -->
