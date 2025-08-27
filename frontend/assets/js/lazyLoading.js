@@ -1,25 +1,47 @@
+import { sobre } from './sobre.js'
+sobre()
 document.addEventListener('DOMContentLoaded', () => {
 
     const sections = document.querySelectorAll('.lazy-section')
 
+    // Armazenamos os timers de cada seção
+    const timers = new Map()
+
     const observer = new IntersectionObserver(async (entries, obs) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const section = entry.target
-                const url = section.getAttribute('data-url')
 
-                // mostra o loader
-                const lines = section.querySelectorAll('.animate')
-                animateLine(0, lines, url, section)
+            const section = entry.target
+            const url = section.getAttribute('data-url')
 
+            // Se não houver timer para essa seção, cria um
+            if (entry.isIntersecting && !timers.has(section)) {
 
-                // para de observar depois de carregar o fetch
-                obs.unobserve(section)
+                const timer = setTimeout(() => {
+
+                    // dispara a animação
+                    const lines = section.querySelectorAll('.animate')
+                    animateLine(0, lines, url, section)
+
+                    // remove o timer depois da animação e para de observar
+                    timers.delete(section)
+                    obs.unobserve(section)
+                }, 1000);// 1s de espera
+
+                timers.set(section, timer)
+
+            } else {
+                // Se a seção saiu da tela antes do tempo, cancela o timer
+                if (timers.has(section)) {
+                    clearTimeout(timers.get(section))
+                    timers.delete(section)
+                }
             }
         })
     }, { threshold: 0.2 }) //começa a carregar quando 20% da seção aparece na tela
 
-    sections.forEach(section => observer.observe(section))
+    sections.forEach(section => setTimeout(() => {
+        observer.observe(section)
+    }, 1000))
 
 
 
@@ -51,6 +73,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 try {
                     const html = await fetchSection(url)
                     section.innerHTML = html
+
+                    // executa scripts do conteúdo injetado
+                    section.querySelectorAll("script").forEach(script => {
+                        const newScript = document.createElement("script")
+                        if (script.src) {
+                            newScript.src = script.src
+                        } else {
+                            newScript.textContent = script.textContent
+                        }
+                        document.body.appendChild(newScript)
+                    })
+
                     return html
                 }
                 catch (err) {
@@ -58,6 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     console.log(err)
                 }
             }, 750 * 2);
+            return
         }
 
 

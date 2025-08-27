@@ -62,11 +62,13 @@
 
 @keyframes escala {
     from {
-        scale: 0;
+        transform: scaleY(0);
+        transform-origin: top left;
     }
 
     to {
-        scale: 1;
+        transform: scaleY(100%);
+        transform-origin: top left;
     }
 }
 

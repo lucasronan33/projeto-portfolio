@@ -1,20 +1,30 @@
 const navbar = document.querySelector('.navbar')
 
-const arrayNavbar = [
-    btnSobre = navbar.querySelector('.btnSobre'),
-    btnTrabalhos = navbar.querySelector('.btnTrabalhos'),
-    btnGaleria = navbar.querySelector('.btnGaleria'),
-    btnContato = navbar.querySelector('.btnContato'),
-    btnIndex = document.querySelector('.btn-index'),
+const btnSobre = navbar.querySelector('.btnSobre')
+const btnTrabalhos = navbar.querySelector('.btnTrabalhos')
+const btnGaleria = navbar.querySelector('.btnGaleria')
+const btnContato = navbar.querySelector('.btnContato')
+const btnIndex = document.querySelector('.btn-index')
+
+const arrayNavbar = [btnSobre,
+    btnTrabalhos,
+    btnGaleria,
+    btnContato,
+    btnIndex,
 ]
 
-console.log('btn-index: ', arrayNavbar.btnIndex)
+const sobre = document.querySelector('#sobre')
+const trabalhos = document.querySelector('#trabalhos')
+const galeria = document.querySelector('#galeria')
+const contato = document.querySelector('#contato')
+const index = document.body
+
 const arrayAlvosNavbar = [
-    sobre = document.querySelector('.sobre'),
-    trabalhos = document.querySelector('.trabalhos'),
-    galeria = document.querySelector('.galeria'),
-    contato = document.querySelector('.contato'),
-    index = document.body,
+    sobre,
+    trabalhos,
+    galeria,
+    contato,
+    index,
 ]
 
 for (const index in arrayNavbar) {
