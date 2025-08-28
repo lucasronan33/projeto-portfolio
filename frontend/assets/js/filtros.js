@@ -1,5 +1,6 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', filtros)
 
+export function filtros() {
     const divFiltros = document.querySelectorAll('.cel-filtros')
 
     const celGaleria = document.querySelectorAll('.cel-galeria')
@@ -60,4 +61,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // exibindo somente projetos com tags selecionadas
 
-})
+}

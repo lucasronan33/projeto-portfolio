@@ -1,5 +1,26 @@
 import { sobre } from './sobre.js'
-sobre()
+import { galeria } from './galeria-carrossel.js'
+import { filtros } from './filtros.js'
+import { openTrabalho } from './openTrabalho.js'
+
+const observerMutations = new MutationObserver(mutations => {
+    mutations.forEach(mutation => {
+        if (mutation.type === 'childList') {
+            mutation.addedNodes.forEach(node => {
+                if (node.nodeType === 1) {
+                    if (node.matches('.sobre')) {
+                        sobre()
+                    } else if (node.matches('.galeria')) {
+                        filtros()
+                        openTrabalho()
+                        galeria()
+                    }
+                }
+            })
+        }
+    })
+})
+observerMutations.observe(document.body, { childList: true, subtree: true })
 document.addEventListener('DOMContentLoaded', () => {
 
     const sections = document.querySelectorAll('.lazy-section')
@@ -73,18 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 try {
                     const html = await fetchSection(url)
                     section.innerHTML = html
-
-                    // executa scripts do conteúdo injetado
-                    section.querySelectorAll("script").forEach(script => {
-                        const newScript = document.createElement("script")
-                        if (script.src) {
-                            newScript.src = script.src
-                        } else {
-                            newScript.textContent = script.textContent
-                        }
-                        document.body.appendChild(newScript)
-                    })
-
                     return html
                 }
                 catch (err) {

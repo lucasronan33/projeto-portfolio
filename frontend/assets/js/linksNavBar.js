@@ -33,9 +33,6 @@ for (const index in arrayNavbar) {
 
 function scrollInto(div, alvo) {
     div.addEventListener('click', e => {
-        console.log('click')
-        console.log('div: ', div)
-        console.log('alvo: ', alvo)
         alvo.scrollIntoView({ behavior: "smooth", block: "start" })
     })
 }

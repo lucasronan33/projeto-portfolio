@@ -1,5 +1,6 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', openTrabalho)
 
+export function openTrabalho() {
   document.querySelectorAll(".cel-galeria").forEach(div => {
     div.addEventListener("click", () => {
       const nome = div.dataset.nome;
@@ -22,13 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   })
 
-})
+  function criarSpan(tituloDoProjeto, linkImg, descricaoProjeto, linkGithub, linkProjeto) {
+    const divFundoSpan = document.createElement("span");
+    divFundoSpan.classList.add("span-fullscreen");
 
-function criarSpan(tituloDoProjeto, linkImg, descricaoProjeto, linkGithub, linkProjeto) {
-  const divFundoSpan = document.createElement("span");
-  divFundoSpan.classList.add("span-fullscreen");
-
-  divFundoSpan.innerHTML = `
+    divFundoSpan.innerHTML = `
       <div class="content-fullscreen">
 
       <div class="close">
@@ -60,20 +59,21 @@ function criarSpan(tituloDoProjeto, linkImg, descricaoProjeto, linkGithub, linkP
       </div>
     `;
 
-  document.body.appendChild(divFundoSpan);
-  document.body.classList.add('no-scroll')
+    document.body.appendChild(divFundoSpan);
+    document.body.classList.add('no-scroll')
 
-  // fechar clicando fora do conteúdo
-  divFundoSpan.addEventListener("click", (event) => {
-    if (event.target === divFundoSpan) {
+    // fechar clicando fora do conteúdo
+    divFundoSpan.addEventListener("click", (event) => {
+      if (event.target === divFundoSpan) {
+        divFundoSpan.remove();
+        document.body.classList.remove('no-scroll')
+      }
+    });
+
+    divFundoSpan.querySelector('.close').addEventListener('click', () => {
+
       divFundoSpan.remove();
       document.body.classList.remove('no-scroll')
-    }
-  });
-
-  divFundoSpan.querySelector('.close').addEventListener('click', () => {
-
-    divFundoSpan.remove();
-    document.body.classList.remove('no-scroll')
-  })
+    })
+  }
 }
