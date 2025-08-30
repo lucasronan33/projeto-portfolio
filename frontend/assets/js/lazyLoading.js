@@ -1,4 +1,6 @@
+import { headerWindow } from './header-window.js'
 import { sobre } from './sobre.js'
+import { contato } from './contato.js'
 import { galeria } from './galeria-carrossel.js'
 import { filtros } from './filtros.js'
 import { openTrabalho } from './openTrabalho.js'
@@ -8,12 +10,15 @@ const observerMutations = new MutationObserver(mutations => {
         if (mutation.type === 'childList') {
             mutation.addedNodes.forEach(node => {
                 if (node.nodeType === 1) {
+                    headerWindow()
                     if (node.matches('.sobre')) {
                         sobre()
                     } else if (node.matches('.galeria')) {
                         filtros()
                         openTrabalho()
                         galeria()
+                    } else if (node.matches('.contato')) {
+                        contato()
                     }
                 }
             })
@@ -126,7 +131,9 @@ document.addEventListener('DOMContentLoaded', () => {
     async function fetchSection(url) {
         try {
             const res = await fetch(url)
-            const html = await res.text()
+            const html = await res.body.values()
+            const teste = html.forEach(log => console.log(log))
+            console.log(teste)
             return html
         } catch (err) {
             console.log(err)

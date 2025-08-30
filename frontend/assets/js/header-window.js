@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+export function headerWindow() {
 
     const divControlesAba = document.querySelectorAll('.divControlesAba')
 
@@ -12,8 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('divPai: ', divPai)
 
         div.querySelector('.close').addEventListener('click', () => {
-
+            console.log('click')
         })
     })
-
-})
+}
