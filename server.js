@@ -35,6 +35,8 @@ app.use(middlewareLogin)
 
 app.on('ready', () => {
     app.listen(3000, () => {
+        const data = new Date()
+        console.log(`Servidor iniciado em ${data.getHours()}h:${data.getMinutes()}m:${data.getSeconds()}s`)
         console.log('Acessar http://localhost:3000');
     });
 });
