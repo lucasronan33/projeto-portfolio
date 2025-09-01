@@ -9,8 +9,6 @@ export function headerWindow() {
 
         const divPai = div.parentNode.parentNode
 
-        console.log('divPai: ', divPai)
-
         div.querySelector('.close').addEventListener('click', () => {
             console.log('click')
         })

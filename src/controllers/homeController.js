@@ -6,6 +6,10 @@ exports.index = async (req, res) => {
     res.render("index", { trabalhos });
 };
 
+exports.cmd = (req, res) => {
+    res.render('includes/window-cmd')
+}
+
 exports.sobre = (req, res) => {
     res.render('includes/sobre')
 }

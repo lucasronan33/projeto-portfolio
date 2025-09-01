@@ -131,9 +131,13 @@ document.addEventListener('DOMContentLoaded', () => {
     async function fetchSection(url) {
         try {
             const res = await fetch(url)
-            const html = await res.body.values()
-            const teste = html.forEach(log => console.log(log))
-            console.log(teste)
+
+            // converte o fetch para um elemento HTML
+            const parser = new DOMParser()
+            const doc = parser.parseFromString(await res.text(), 'text/html')
+
+            // retorna o elemento em string
+            const html = doc.body.firstElementChild.outerHTML
             return html
         } catch (err) {
             console.log(err)

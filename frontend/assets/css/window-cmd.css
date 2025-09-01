@@ -1,0 +1,123 @@
+:root {
+    --hover-btn-aba: #2E2E2E;
+    --fundo-janelas: #090C24;
+    --cor-bordas-linhas: #0C3356;
+    --rosa: #FC4FB6;
+    --verde: #43CD55;
+    --amarelo: #FEF08A;
+    --laranja: #D9A70A;
+    --branco: #FFFFFF;
+    --ciano: #67E8F9;
+    --roxo: #A369FF;
+    --tag: var(--cor-bordas-linhas);
+}
+
+.corpo-cmd {
+    background-color: black;
+    height: 100vh;
+
+    .window-cmd {
+        width: 90%;
+        overflow: hidden;
+        position: absolute;
+        top: 5%;
+        left: 5%;
+        border: 1px solid rgb(33, 33, 33);
+        border-radius: 2vh;
+
+        * {
+            display: flex;
+        }
+
+        .header-window-cmd {
+            background-color: var(--hover-btn-aba);
+            justify-content: start;
+
+            .borda-e-aba {
+                height: 100%;
+                background-color: black;
+
+                div {
+                    width: 1vh;
+                    height: 100%;
+                    border-radius: 0 0 0.75vh 0;
+                    background-color: var(--hover-btn-aba);
+                }
+            }
+
+            .borda-d-aba {
+                height: 100%;
+                background-color: black;
+
+                div {
+                    width: 2vh;
+                    height: 100%;
+                    border-radius: 0 0 0 0.75vh;
+                    background-color: var(--hover-btn-aba);
+                }
+            }
+
+            .titulo-aba {
+                width: 25vw;
+                height: 90%;
+                margin: 0;
+                align-self: flex-end;
+                justify-content: center;
+                border-radius: 1.5vw 1.5vw 0 0;
+
+                background-color: black;
+
+
+                .aba {
+                    width: 90%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 1vw;
+
+                    .vs-logo {
+                        width: 2vw;
+                        background-image: url(../img/logos/icon-cmd.png);
+                        background-size: contain;
+                        background-position: center;
+                    }
+
+                    .name-window {
+                        color: white;
+                        overflow: hidden;
+                        font-size: 1.6vh;
+                    }
+
+                    .close {
+                        width: 15%;
+                        height: 60%;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 1vh;
+
+                        /* background-color: red; */
+
+                        &:hover {
+                            background-color: rgba(128, 128, 128, 0.3);
+                        }
+
+                        svg {
+                            height: 50%;
+                        }
+
+                    }
+                }
+            }
+
+            .divControlesAba {
+                margin-left: auto;
+            }
+        }
+
+        content {
+            width: 100%;
+            height: 60vh;
+            background-color: black;
+        }
+    }
+}
