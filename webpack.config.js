@@ -1,14 +1,9 @@
 const path = require("path");
 
 module.exports = {
-    mode: "development",
-    entry: path.resolve(
-        __dirname__,
-        "frontend",
-        "assets",
-        "js",
-        "lazyloading.js"
-    ),
+    mode: "production",
+    entry: path.resolve("frontend", "assets", "js", "lazyLoading"),
+
     output: {
         path: path.resolve("./", "public", "assets", "js"),
         filename: "bundle.js"
@@ -19,9 +14,9 @@ module.exports = {
                 exclude: /node_modules/,
                 test: /\.js/,
                 use: {
+                    loader: "babel-loader",
                     options: {
-                        presets: "@babel/env",
-                        
+                        presets: ["@babel/env"]
                     }
                 }
             }
