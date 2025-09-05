@@ -34,18 +34,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // Armazenamos os timers de cada seção
     const timers = new Map()
 
-    const observer = new IntersectionObserver(async (entries, obs) => {
-        entries.forEach(async entry => {
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
 
             const section = entry.target
             const url = section.getAttribute('data-url')
-            console.log('entry: ' + url)
 
             // Se não houver timer para essa seção, cria um
             if (entry.isIntersecting && !timers.has(section)) {
-                console.log('123')
 
-                const timer = setTimeout(() => {
+                const timer = setTimeout(async () => {
+                    const cmd = await windowCMD()
+                    section.appendChild(cmd)
+
+                    const contentCMD = section.querySelector('.content-animation')
+                    const animation = section.querySelector('.divAnimation')
+                    contentCMD.appendChild(animation)
 
                     // dispara a animação
                     const lines = section.querySelectorAll('.animate')
