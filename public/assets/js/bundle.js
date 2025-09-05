@@ -1,3 +1,657 @@
-/*! For license information please see bundle.js.LICENSE.txt */
-(()=>{"use strict";function e(){var e=document.querySelector(".sobre");function t(){window.innerWidth>window.innerHeight?(document.querySelector(".sobreDesktop").style.display="flex",document.querySelector(".sobreMobile").style.display="none"):(document.querySelector(".sobreMobile").style.display="flex",document.querySelector(".sobreDesktop").style.display="none")}e&&t(),e&&(window.addEventListener("resize",function(){t()}),t())}function t(){var e=document.querySelector(".content-window-contato"),t=document.querySelector('input[name="enviaremail"]'),n=document.querySelectorAll(['input[type="text"], input[name="email"]']);e.addEventListener("keydown",function(n){"node sendmail.js"===t.value&&"Enter"===n.key&&(console.log(n.key),e.submit())}),n.forEach(function(e){"enviaremail"!==e.name&&e.addEventListener("input",function(t){e.style.width=e.value.length+"ch",e.style.background="rgba(0,0,0,0)","deleteContentBackward"===t.inputType&&e.value.length<1&&e.removeAttribute("style")})})}function n(){var e=document.querySelector(".carrossel-galeria-content"),t=document.querySelectorAll(".cel-galeria"),n=document.querySelector(".btn-avancar"),o=document.querySelector(".btn-voltar");function r(){window.innerWidth>window.innerHeight?(e.style.overflowX="hidden",t.forEach(function(e){e.style.width="20vw"}),n.style.display="flex"):(e.style.overflowX="auto",t.forEach(function(e){e.style.width="45vw"}),n.style.display="none",o.style.display="none")}e&&(window.addEventListener("resize",function(){r()}),r(),e.addEventListener("scroll",function(){e.scrollLeft>0?o.style.display="flex":o.style.display="none"}),n.addEventListener("click",function(){e.scrollBy({left:.5*e.offsetWidth,behavior:"smooth"})}),o.addEventListener("click",function(){e.scrollBy({left:-.5*e.offsetWidth,behavior:"smooth"})}))}function o(){var e=document.querySelectorAll(".cel-filtros"),t=document.querySelectorAll(".cel-galeria"),n=[];e.forEach(function(e){e.addEventListener("click",function(){var o=e.querySelector("input");if(!0===o.checked){o.checked=!1;var r=e.textContent.trim();n=n.filter(function(e){return e!==r}),console.log("filtroDesmarcado: ",r),t.forEach(function(e){n.forEach(function(t){e.className.includes(t)?e.style.display="flex":e.style.display="none"}),0===n.length&&(e.style.display="flex")}),console.log("divGaleria (pos-if): ",n)}else o.checked=!0,t.forEach(function(t){var o=e.textContent.trim();t.className.includes(o)||(n.includes(o)||n.push(o),t.style.display="none")}),console.log("divsFiltradas: ",n)})})}function r(){document.querySelectorAll(".cel-galeria").forEach(function(e){e.addEventListener("click",function(){var t,n,o,r,c,i;t=e.dataset.nome,n=e.dataset.img,o=e.dataset.descricao,r=e.dataset.linkgithub,c=e.dataset.linkprojeto,(i=document.createElement("span")).classList.add("span-fullscreen"),i.innerHTML='\n      <div class="content-fullscreen">\n\n      <div class="close">\n        <svg width="55" height="54" viewBox="0 0 55 54" fill="none" xmlns="http://www.w3.org/2000/svg">\n          <path d="M52.7367 1.86182L54.5033 3.63037L31.1136 26.9995L54.5023 50.3696L50.9691 53.9067L27.5765 30.5337L4.18494 53.9067L0.651733 50.3696L24.0394 26.9995L0.650757 3.63037L2.41736 1.86182L4.18494 0.0932617L27.5765 23.4653L50.9691 0.0932617L52.7367 1.86182Z" fill="white" />\n        </svg>\n      </div>\n\n        <div class="content-container">\n          <h3>'.concat(t,'</h3>\n          <img src="').concat(n,'" alt="" srcset="">\n\n          <content>\n          <div class="descricao-projeto">\n            <b>Descrição do Projeto: </b>\n            <p>').concat(o,'</p>\n          </div>\n\n          <div class="btn-links">\n            <a href="').concat(r,'" class="link-github">\n              <button data-text="Ir ao GitHub"></button>\n            </a>\n            <a href="').concat(c,'" class="link-projeto">\n              <button data-text="Visitar Aplicação"></button>\n            </a>\n          </div>\n          </content>\n        </div>\n      </div>\n    '),document.body.appendChild(i),document.body.classList.add("no-scroll"),i.addEventListener("click",function(e){e.target===i&&(i.remove(),document.body.classList.remove("no-scroll"))}),i.querySelector(".close").addEventListener("click",function(){i.remove(),document.body.classList.remove("no-scroll")})})}),document.querySelectorAll(".cel-galeria").forEach(function(e){e.addEventListener("click",function(e){})})}function c(){var e,t,n="function"==typeof Symbol?Symbol:{},o=n.iterator||"@@iterator",r=n.toStringTag||"@@toStringTag";function a(n,o,r,c){var a=o&&o.prototype instanceof s?o:s,u=Object.create(a.prototype);return i(u,"_invoke",function(n,o,r){var c,i,a,s=0,u=r||[],d=!1,f={p:0,n:0,v:e,a:v,f:v.bind(e,4),d:function(t,n){return c=t,i=0,a=e,f.n=n,l}};function v(n,o){for(i=n,a=o,t=0;!d&&s&&!r&&t<u.length;t++){var r,c=u[t],v=f.p,y=c[2];n>3?(r=y===o)&&(a=c[(i=c[4])?5:(i=3,3)],c[4]=c[5]=e):c[0]<=v&&((r=n<2&&v<c[1])?(i=0,f.v=o,f.n=c[1]):v<y&&(r=n<3||c[0]>o||o>y)&&(c[4]=n,c[5]=o,f.n=y,i=0))}if(r||n>1)return l;throw d=!0,o}return function(r,u,y){if(s>1)throw TypeError("Generator is already running");for(d&&1===u&&v(u,y),i=u,a=y;(t=i<2?e:a)||!d;){c||(i?i<3?(i>1&&(f.n=-1),v(i,a)):f.n=a:f.v=a);try{if(s=2,c){if(i||(r="next"),t=c[r]){if(!(t=t.call(c,a)))throw TypeError("iterator result is not an object");if(!t.done)return t;a=t.value,i<2&&(i=0)}else 1===i&&(t=c.return)&&t.call(c),i<2&&(a=TypeError("The iterator does not provide a '"+r+"' method"),i=1);c=e}else if((t=(d=f.n<0)?a:n.call(o,f))!==l)break}catch(t){c=e,i=1,a=t}finally{s=1}}return{value:t,done:d}}}(n,r,c),!0),u}var l={};function s(){}function u(){}function d(){}t=Object.getPrototypeOf;var f=[][o]?t(t([][o]())):(i(t={},o,function(){return this}),t),v=d.prototype=s.prototype=Object.create(f);function y(e){return Object.setPrototypeOf?Object.setPrototypeOf(e,d):(e.__proto__=d,i(e,r,"GeneratorFunction")),e.prototype=Object.create(v),e}return u.prototype=d,i(v,"constructor",d),i(d,"constructor",u),u.displayName="GeneratorFunction",i(d,r,"GeneratorFunction"),i(v),i(v,r,"Generator"),i(v,o,function(){return this}),i(v,"toString",function(){return"[object Generator]"}),(c=function(){return{w:a,m:y}})()}function i(e,t,n,o){var r=Object.defineProperty;try{r({},"",{})}catch(e){r=0}i=function(e,t,n,o){function c(t,n){i(e,t,function(e){return this._invoke(t,n,e)})}t?r?r(e,t,{value:n,enumerable:!o,configurable:!o,writable:!o}):e[t]=n:(c("next",0),c("throw",1),c("return",2))},i(e,t,n,o)}function a(e,t,n,o,r,c,i){try{var a=e[c](i),l=a.value}catch(e){return void n(e)}a.done?t(l):Promise.resolve(l).then(o,r)}function l(e){return function(){var t=this,n=arguments;return new Promise(function(o,r){var c=e.apply(t,n);function i(e){a(c,o,r,i,l,"next",e)}function l(e){a(c,o,r,i,l,"throw",e)}i(void 0)})}}document.addEventListener("DOMContentLoaded",e),"/contato"===window.location.href&&t(),document.addEventListener("DOMContentLoaded",n),document.addEventListener("DOMContentLoaded",o),document.addEventListener("DOMContentLoaded",r),new MutationObserver(function(c){c.forEach(function(c){"childList"===c.type&&c.addedNodes.forEach(function(c){1===c.nodeType&&(document.querySelectorAll(".divControlesAba").forEach(function(e){e.addEventListener("click",function(){alert("Calma lá amigão, essa função ainda não estra pronta 🤨")}),e.parentNode.parentNode,e.querySelector(".close").addEventListener("click",function(){console.log("click")})}),c.matches(".sobre")?e():c.matches(".galeria")?(o(),r(),n()):c.matches(".contato")&&t())})})}).observe(document.body,{childList:!0,subtree:!0}),document.addEventListener("DOMContentLoaded",function(){var e=document.querySelectorAll(".lazy-section"),t=new Map,n=new IntersectionObserver(function(){var e=l(c().m(function e(n,o){return c().w(function(e){for(;;)switch(e.n){case 0:n.forEach(function(e){var n=e.target,c=n.getAttribute("data-url");if(e.isIntersecting&&!t.has(n)){var i=setTimeout(function(){r(0,n.querySelectorAll(".animate"),c,n),t.delete(n),o.unobserve(n)},1e3);t.set(n,i)}else t.has(n)&&(clearTimeout(t.get(n)),t.delete(n))});case 1:return e.a(2)}},e)}));return function(t,n){return e.apply(this,arguments)}}(),{threshold:.2});function o(e,t){var n=arguments.length>2&&void 0!==arguments[2]?arguments[2]:100,o=arguments.length>3?arguments[3]:void 0,r=0;e.textContent="",e.classList.add("cursor"),function c(){r<t.length?(e.textContent+=t.charAt(r),r++,setTimeout(c,n)):(e.classList.remove("cursor"),o&&o())}()}function r(){return i.apply(this,arguments)}function i(){return i=l(c().m(function e(){var t,n,i,s,u,d,f=arguments;return c().w(function(e){for(;;)switch(e.n){case 0:if(i=f.length>2?f[2]:void 0,s=f.length>3?f[3]:void 0,!((t=f.length>0&&void 0!==f[0]?f[0]:0)>=(n=f.length>1?f[1]:void 0).length)){e.n=1;break}return n[t-1].classList.add("blink"),setTimeout(l(c().m(function e(){var t,n;return c().w(function(e){for(;;)switch(e.p=e.n){case 0:return e.p=0,e.n=1,a(i);case 1:return t=e.v,s.innerHTML=t,e.a(2,t);case 2:e.p=2,n=e.v,s.innerHTML="<p> Erro ao carregar seção</p>",console.log(n);case 3:return e.a(2)}},e,null,[[0,2]])})),1500),e.a(2);case 1:u=n[t],d=u.dataset.text,u.classList.contains("line")?(u.textContent=d,setTimeout(function(){r(t+1,n,i,s)},500)):o(u,d,50,function(){r(t+1,n,i,s)});case 2:return e.a(2)}},e)})),i.apply(this,arguments)}function a(e){return s.apply(this,arguments)}function s(){return(s=l(c().m(function e(t){var n,o,r,i,a,l;return c().w(function(e){for(;;)switch(e.p=e.n){case 0:return e.p=0,e.n=1,fetch(t);case 1:return n=e.v,o=new DOMParser,a=o,e.n=2,n.text();case 2:return r=a.parseFromString.call(a,e.v,"text/html"),i=r.body.firstElementChild.outerHTML,e.a(2,i);case 3:e.p=3,l=e.v,console.log(l);case 4:return e.a(2)}},e,null,[[0,3]])}))).apply(this,arguments)}e.forEach(function(e){return setTimeout(function(){n.observe(e)},1e3)})})})();
+/******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./frontend/assets/js/animation-cmd.js":
+/*!*********************************************!*\
+  !*** ./frontend/assets/js/animation-cmd.js ***!
+  \*********************************************/
+/***/ (() => {
+
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+var cmd = /*#__PURE__*/function () {
+  var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+    var res, parser, doc, html, _html, _t, _t2;
+    return _regenerator().w(function (_context) {
+      while (1) switch (_context.p = _context.n) {
+        case 0:
+          _context.p = 0;
+          _context.n = 1;
+          return fetch('/cmd');
+        case 1:
+          res = _context.v;
+          parser = new DOMParser();
+          _t = parser;
+          _context.n = 2;
+          return res.text();
+        case 2:
+          doc = _t.parseFromString.call(_t, _context.v, 'text/html');
+          html = doc.body.firstElementChild.outerHTML;
+          return _context.a(2, html);
+        case 3:
+          _context.p = 3;
+          _t2 = _context.v;
+          _html = _t2;
+          return _context.a(2, _html);
+      }
+    }, _callee, null, [[0, 3]]);
+  }));
+  return function cmd() {
+    return _ref.apply(this, arguments);
+  };
+}();
+
+/***/ }),
+
+/***/ "./frontend/assets/js/contato.js":
+/*!***************************************!*\
+  !*** ./frontend/assets/js/contato.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   contato: () => (/* binding */ contato)
+/* harmony export */ });
+function contato() {
+  var form = document.querySelector('.content-window-contato');
+  var enviaremail = document.querySelector('input[name="enviaremail"]');
+  var inputs = document.querySelectorAll(['input[type="text"], input[name="email"]']);
+  form.addEventListener('keydown', function (e) {
+    if (enviaremail.value === 'node sendmail.js' && e.key === 'Enter') {
+      console.log(e.key);
+      form.submit();
+    }
+  });
+  inputs.forEach(function (input) {
+    // condicional para não selecionar o input de submit
+    if (input.name !== 'enviaremail') {
+      input.addEventListener('input', function (e) {
+        input.style.width = input.value.length + "ch";
+        input.style.background = 'rgba(0,0,0,0)';
+        if (e.inputType === 'deleteContentBackward' && input.value.length < 1) {
+          input.removeAttribute('style');
+        }
+      });
+    }
+  });
+}
+if (window.location.href === '/contato') contato();
+
+/***/ }),
+
+/***/ "./frontend/assets/js/filtros.js":
+/*!***************************************!*\
+  !*** ./frontend/assets/js/filtros.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   filtros: () => (/* binding */ filtros)
+/* harmony export */ });
+document.addEventListener('DOMContentLoaded', filtros);
+function filtros() {
+  var divFiltros = document.querySelectorAll('.cel-filtros');
+  var celGaleria = document.querySelectorAll('.cel-galeria');
+
+  // estilização filtros, marca/desmarca checkbox oculta
+  var tagsAtivas = [];
+  divFiltros.forEach(function (divFiltro) {
+    divFiltro.addEventListener('click', function () {
+      var checkbox = divFiltro.querySelector('input');
+      if (checkbox.checked === true) {
+        checkbox.checked = false;
+        var cleanTextDivFiltro = divFiltro.textContent.trim();
+        tagsAtivas = tagsAtivas.filter(function (filtro) {
+          if (filtro === cleanTextDivFiltro) {
+            return false;
+          }
+          return true;
+        });
+        console.log('filtroDesmarcado: ', cleanTextDivFiltro);
+        celGaleria.forEach(function (divGaleria) {
+          tagsAtivas.forEach(function (tag) {
+            if (divGaleria.className.includes(tag)) {
+              divGaleria.style.display = 'flex';
+            } else {
+              divGaleria.style.display = 'none';
+            }
+          });
+          if (tagsAtivas.length === 0) {
+            divGaleria.style.display = 'flex';
+          }
+        });
+        console.log('divGaleria (pos-if): ', tagsAtivas);
+      } else {
+        checkbox.checked = true;
+        celGaleria.forEach(function (divGaleria) {
+          var cleanTextDivFiltro = divFiltro.textContent.trim();
+          if (!divGaleria.className.includes(cleanTextDivFiltro)) {
+            !tagsAtivas.includes(cleanTextDivFiltro) ? tagsAtivas.push(cleanTextDivFiltro) : {};
+            divGaleria.style.display = 'none';
+          }
+        });
+        console.log('divsFiltradas: ', tagsAtivas);
+      }
+    });
+  });
+
+  // exibindo somente projetos com tags selecionadas
+}
+
+/***/ }),
+
+/***/ "./frontend/assets/js/galeria-carrossel.js":
+/*!*************************************************!*\
+  !*** ./frontend/assets/js/galeria-carrossel.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   galeria: () => (/* binding */ galeria)
+/* harmony export */ });
+function galeria() {
+  var carrossel = document.querySelector('.carrossel-galeria-content');
+  var celGaleria = document.querySelectorAll('.cel-galeria');
+  var btnAvancar = document.querySelector('.btn-avancar');
+  var btnVoltar = document.querySelector('.btn-voltar');
+  if (carrossel) {
+    window.addEventListener('resize', function () {
+      displayCarrossel();
+    });
+    displayCarrossel();
+    eventsCarrossel();
+  } else {
+    return;
+  }
+  function eventsCarrossel() {
+    carrossel.addEventListener('scroll', function () {
+      if (carrossel.scrollLeft > 0) {
+        btnVoltar.style.display = 'flex';
+      } else {
+        btnVoltar.style.display = 'none';
+      }
+    });
+    btnAvancar.addEventListener('click', function () {
+      carrossel.scrollBy({
+        left: carrossel.offsetWidth * 0.5,
+        behavior: 'smooth'
+      });
+    });
+    btnVoltar.addEventListener('click', function () {
+      carrossel.scrollBy({
+        left: -(carrossel.offsetWidth * 0.5),
+        behavior: 'smooth'
+      });
+    });
+  }
+  function displayCarrossel() {
+    if (window.innerWidth > window.innerHeight) {
+      carrossel.style.overflowX = 'hidden';
+      celGaleria.forEach(function (div) {
+        div.style.width = '20vw';
+      });
+      btnAvancar.style.display = 'flex';
+    } else {
+      carrossel.style.overflowX = 'auto';
+      celGaleria.forEach(function (div) {
+        div.style.width = '45vw';
+      });
+      btnAvancar.style.display = 'none';
+      btnVoltar.style.display = 'none';
+    }
+  }
+}
+document.addEventListener('DOMContentLoaded', galeria);
+
+/***/ }),
+
+/***/ "./frontend/assets/js/header-window.js":
+/*!*********************************************!*\
+  !*** ./frontend/assets/js/header-window.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   headerWindow: () => (/* binding */ headerWindow)
+/* harmony export */ });
+function headerWindow() {
+  var divControlesAba = document.querySelectorAll('.divControlesAba');
+  divControlesAba.forEach(function (div) {
+    div.addEventListener('click', function () {
+      alert('Calma lá amigão, essa função ainda não estra pronta 🤨');
+    });
+    var divPai = div.parentNode.parentNode;
+    div.querySelector('.close').addEventListener('click', function () {
+      console.log('click');
+    });
+  });
+}
+
+/***/ }),
+
+/***/ "./frontend/assets/js/openTrabalho.js":
+/*!********************************************!*\
+  !*** ./frontend/assets/js/openTrabalho.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   openTrabalho: () => (/* binding */ openTrabalho)
+/* harmony export */ });
+document.addEventListener('DOMContentLoaded', openTrabalho);
+function openTrabalho() {
+  document.querySelectorAll(".cel-galeria").forEach(function (div) {
+    div.addEventListener("click", function () {
+      var nome = div.dataset.nome;
+      var img = div.dataset.img;
+      var descricao = div.dataset.descricao;
+      var github = div.dataset.linkgithub;
+      var projeto = div.dataset.linkprojeto;
+      criarSpan(nome, img, descricao, github, projeto);
+    });
+  });
+  var celGaleria = document.querySelectorAll('.cel-galeria');
+  celGaleria.forEach(function (divGaleria) {
+    divGaleria.addEventListener('click', function (e) {});
+  });
+  function criarSpan(tituloDoProjeto, linkImg, descricaoProjeto, linkGithub, linkProjeto) {
+    var divFundoSpan = document.createElement("span");
+    divFundoSpan.classList.add("span-fullscreen");
+    divFundoSpan.innerHTML = "\n      <div class=\"content-fullscreen\">\n\n      <div class=\"close\">\n        <svg width=\"55\" height=\"54\" viewBox=\"0 0 55 54\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n          <path d=\"M52.7367 1.86182L54.5033 3.63037L31.1136 26.9995L54.5023 50.3696L50.9691 53.9067L27.5765 30.5337L4.18494 53.9067L0.651733 50.3696L24.0394 26.9995L0.650757 3.63037L2.41736 1.86182L4.18494 0.0932617L27.5765 23.4653L50.9691 0.0932617L52.7367 1.86182Z\" fill=\"white\" />\n        </svg>\n      </div>\n\n        <div class=\"content-container\">\n          <h3>".concat(tituloDoProjeto, "</h3>\n          <img src=\"").concat(linkImg, "\" alt=\"\" srcset=\"\">\n\n          <content>\n          <div class=\"descricao-projeto\">\n            <b>Descri\xE7\xE3o do Projeto: </b>\n            <p>").concat(descricaoProjeto, "</p>\n          </div>\n\n          <div class=\"btn-links\">\n            <a href=\"").concat(linkGithub, "\" class=\"link-github\">\n              <button data-text=\"Ir ao GitHub\"></button>\n            </a>\n            <a href=\"").concat(linkProjeto, "\" class=\"link-projeto\">\n              <button data-text=\"Visitar Aplica\xE7\xE3o\"></button>\n            </a>\n          </div>\n          </content>\n        </div>\n      </div>\n    ");
+    document.body.appendChild(divFundoSpan);
+    document.body.classList.add('no-scroll');
+
+    // fechar clicando fora do conteúdo
+    divFundoSpan.addEventListener("click", function (event) {
+      if (event.target === divFundoSpan) {
+        divFundoSpan.remove();
+        document.body.classList.remove('no-scroll');
+      }
+    });
+    divFundoSpan.querySelector('.close').addEventListener('click', function () {
+      divFundoSpan.remove();
+      document.body.classList.remove('no-scroll');
+    });
+  }
+}
+
+/***/ }),
+
+/***/ "./frontend/assets/js/sobre.js":
+/*!*************************************!*\
+  !*** ./frontend/assets/js/sobre.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   sobre: () => (/* binding */ sobre)
+/* harmony export */ });
+function sobre() {
+  var sobre = document.querySelector('.sobre');
+  if (sobre) {
+    resize();
+  }
+  if (sobre) {
+    window.addEventListener('resize', function () {
+      resize();
+    });
+    resize();
+  } else {
+    return;
+  }
+  function resize() {
+    if (window.innerWidth > window.innerHeight) {
+      document.querySelector('.sobreDesktop').style.display = 'flex';
+      document.querySelector('.sobreMobile').style.display = 'none';
+    } else {
+      document.querySelector('.sobreMobile').style.display = 'flex';
+      document.querySelector('.sobreDesktop').style.display = 'none';
+    }
+  }
+}
+document.addEventListener('DOMContentLoaded', sobre);
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+// This entry needs to be wrapped in an IIFE because it needs to be in strict mode.
+(() => {
+"use strict";
+/*!*******************************************!*\
+  !*** ./frontend/assets/js/lazyLoading.js ***!
+  \*******************************************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _header_window_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./header-window.js */ "./frontend/assets/js/header-window.js");
+/* harmony import */ var _sobre_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sobre.js */ "./frontend/assets/js/sobre.js");
+/* harmony import */ var _contato_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./contato.js */ "./frontend/assets/js/contato.js");
+/* harmony import */ var _galeria_carrossel_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./galeria-carrossel.js */ "./frontend/assets/js/galeria-carrossel.js");
+/* harmony import */ var _filtros_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./filtros.js */ "./frontend/assets/js/filtros.js");
+/* harmony import */ var _openTrabalho_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./openTrabalho.js */ "./frontend/assets/js/openTrabalho.js");
+/* harmony import */ var _animation_cmd_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./animation-cmd.js */ "./frontend/assets/js/animation-cmd.js");
+/* harmony import */ var _animation_cmd_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_animation_cmd_js__WEBPACK_IMPORTED_MODULE_6__);
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+
+
+
+
+
+
+
+var observerMutations = new MutationObserver(function (mutations) {
+  mutations.forEach(function (mutation) {
+    if (mutation.type === 'childList') {
+      mutation.addedNodes.forEach(function (node) {
+        if (node.nodeType === 1) {
+          (0,_header_window_js__WEBPACK_IMPORTED_MODULE_0__.headerWindow)();
+          if (node.matches('.sobre')) {
+            (0,_sobre_js__WEBPACK_IMPORTED_MODULE_1__.sobre)();
+          } else if (node.matches('.galeria')) {
+            (0,_filtros_js__WEBPACK_IMPORTED_MODULE_4__.filtros)();
+            (0,_openTrabalho_js__WEBPACK_IMPORTED_MODULE_5__.openTrabalho)();
+            (0,_galeria_carrossel_js__WEBPACK_IMPORTED_MODULE_3__.galeria)();
+          } else if (node.matches('.contato')) {
+            (0,_contato_js__WEBPACK_IMPORTED_MODULE_2__.contato)();
+          }
+        }
+      });
+    }
+  });
+});
+observerMutations.observe(document.body, {
+  childList: true,
+  subtree: true
+});
+document.addEventListener('DOMContentLoaded', function () {
+  var sections = document.querySelectorAll('.lazy-section');
+
+  // Armazenamos os timers de cada seção
+  var timers = new Map();
+  var observer = new IntersectionObserver(/*#__PURE__*/function () {
+    var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2(entries, obs) {
+      return _regenerator().w(function (_context2) {
+        while (1) switch (_context2.n) {
+          case 0:
+            entries.forEach(/*#__PURE__*/function () {
+              var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee(entry) {
+                var section, url, timer;
+                return _regenerator().w(function (_context) {
+                  while (1) switch (_context.n) {
+                    case 0:
+                      section = entry.target;
+                      url = section.getAttribute('data-url');
+                      console.log('entry: ' + url);
+
+                      // Se não houver timer para essa seção, cria um
+                      if (entry.isIntersecting && !timers.has(section)) {
+                        console.log('123');
+                        timer = setTimeout(function () {
+                          // dispara a animação
+                          var lines = section.querySelectorAll('.animate');
+                          animateLine(0, lines, url, section);
+
+                          // remove o timer depois da animação e para de observar
+                          timers["delete"](section);
+                          obs.unobserve(section);
+                        }, 500); // 0,5s de espera
+                        timers.set(section, timer);
+                      } else {
+                        // Se a seção saiu da tela antes do tempo, cancela o timer
+                        if (timers.has(section)) {
+                          clearTimeout(timers.get(section));
+                          timers["delete"](section);
+                        }
+                      }
+                    case 1:
+                      return _context.a(2);
+                  }
+                }, _callee);
+              }));
+              return function (_x3) {
+                return _ref2.apply(this, arguments);
+              };
+            }());
+          case 1:
+            return _context2.a(2);
+        }
+      }, _callee2);
+    }));
+    return function (_x, _x2) {
+      return _ref.apply(this, arguments);
+    };
+  }(), {
+    threshold: 0.2
+  }); //começa a carregar quando 20% da seção aparece na tela
+
+  sections.forEach(/*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3(section) {
+      return _regenerator().w(function (_context3) {
+        while (1) switch (_context3.n) {
+          case 0:
+            setTimeout(function () {
+              observer.observe(section);
+            }, 1000);
+          case 1:
+            return _context3.a(2);
+        }
+      }, _callee3);
+    }));
+    return function (_x4) {
+      return _ref3.apply(this, arguments);
+    };
+  }());
+  function typeWriter(element, text) {
+    var speed = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 100;
+    var callback = arguments.length > 3 ? arguments[3] : undefined;
+    var i = 0;
+    element.textContent = '';
+    element.classList.add('cursor');
+    function typing() {
+      if (i < text.length) {
+        element.textContent += text.charAt(i);
+        i++;
+
+        // recursão com delay para cada char
+        setTimeout(typing, speed);
+      } else {
+        element.classList.remove('cursor'); // remove o cursor
+        if (callback) callback(); // chama o proximo elemento
+      }
+    }
+    typing();
+  }
+  function animateLine() {
+    return _animateLine.apply(this, arguments);
+  }
+  function _animateLine() {
+    _animateLine = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee5() {
+      var index,
+        element,
+        url,
+        section,
+        line,
+        text,
+        _args5 = arguments;
+      return _regenerator().w(function (_context5) {
+        while (1) switch (_context5.n) {
+          case 0:
+            index = _args5.length > 0 && _args5[0] !== undefined ? _args5[0] : 0;
+            element = _args5.length > 1 ? _args5[1] : undefined;
+            url = _args5.length > 2 ? _args5[2] : undefined;
+            section = _args5.length > 3 ? _args5[3] : undefined;
+            if (!(index >= element.length)) {
+              _context5.n = 1;
+              break;
+            }
+            element[index - 1].classList.add('blink');
+            setTimeout(/*#__PURE__*/_asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4() {
+              var html, _t;
+              return _regenerator().w(function (_context4) {
+                while (1) switch (_context4.p = _context4.n) {
+                  case 0:
+                    _context4.p = 0;
+                    _context4.n = 1;
+                    return fetchSection(url);
+                  case 1:
+                    html = _context4.v;
+                    section.innerHTML = html;
+                    return _context4.a(2, html);
+                  case 2:
+                    _context4.p = 2;
+                    _t = _context4.v;
+                    section.innerHTML = "<p> Erro ao carregar se\xE7\xE3o</p>";
+                    console.log(_t);
+                  case 3:
+                    return _context4.a(2);
+                }
+              }, _callee4, null, [[0, 2]]);
+            })), 750 * 2);
+            return _context5.a(2);
+          case 1:
+            line = element[index];
+            text = line.dataset.text;
+            if (line.classList.contains('line')) {
+              // mostra direto
+              line.textContent = text;
+              // espera um pouco e já pula pra próxima
+              setTimeout(function () {
+                animateLine(index + 1, element, url, section);
+              }, 500);
+            } else {
+              typeWriter(line, text, 50, function () {
+                // depois que a linha termina, chama a proxima
+                animateLine(index + 1, element, url, section);
+              });
+            }
+          case 2:
+            return _context5.a(2);
+        }
+      }, _callee5);
+    }));
+    return _animateLine.apply(this, arguments);
+  }
+  function fetchSection(_x5) {
+    return _fetchSection.apply(this, arguments);
+  }
+  function _fetchSection() {
+    _fetchSection = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee6(url) {
+      var res, parser, doc, html, _html, _t2, _t3;
+      return _regenerator().w(function (_context6) {
+        while (1) switch (_context6.p = _context6.n) {
+          case 0:
+            _context6.p = 0;
+            _context6.n = 1;
+            return fetch(url);
+          case 1:
+            res = _context6.v;
+            // converte o fetch para um elemento HTML
+            parser = new DOMParser();
+            _t2 = parser;
+            _context6.n = 2;
+            return res.text();
+          case 2:
+            doc = _t2.parseFromString.call(_t2, _context6.v, 'text/html');
+            // retorna o elemento em string
+            html = doc.body.firstElementChild.outerHTML;
+            return _context6.a(2, html);
+          case 3:
+            _context6.p = 3;
+            _t3 = _context6.v;
+            console.log(_t3);
+            _html = "<p> Erro ao carregar se\xE7\xE3o</p>";
+            return _context6.a(2, _html);
+        }
+      }, _callee6, null, [[0, 3]]);
+    }));
+    return _fetchSection.apply(this, arguments);
+  }
+});
+})();
+
+/******/ })()
+;
 //# sourceMappingURL=bundle.js.map

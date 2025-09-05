@@ -4,6 +4,7 @@ import { contato } from './contato.js'
 import { galeria } from './galeria-carrossel.js'
 import { filtros } from './filtros.js'
 import { openTrabalho } from './openTrabalho.js'
+import { windowCMD } from './animation-cmd.js'
 
 const observerMutations = new MutationObserver(mutations => {
     mutations.forEach(mutation => {
@@ -34,13 +35,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const timers = new Map()
 
     const observer = new IntersectionObserver(async (entries, obs) => {
-        entries.forEach(entry => {
+        entries.forEach(async entry => {
 
             const section = entry.target
             const url = section.getAttribute('data-url')
+            console.log('entry: ' + url)
 
             // Se não houver timer para essa seção, cria um
             if (entry.isIntersecting && !timers.has(section)) {
+                console.log('123')
 
                 const timer = setTimeout(() => {
 
@@ -51,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     // remove o timer depois da animação e para de observar
                     timers.delete(section)
                     obs.unobserve(section)
-                }, 1000);// 1s de espera
+                }, 500);// 0,5s de espera
 
                 timers.set(section, timer)
 
@@ -65,9 +68,11 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }, { threshold: 0.2 }) //começa a carregar quando 20% da seção aparece na tela
 
-    sections.forEach(section => setTimeout(() => {
-        observer.observe(section)
-    }, 1000))
+    sections.forEach(async section => {
+        setTimeout(() => {
+            observer.observe(section)
+        }, 1000)
+    })
 
 
 
@@ -142,6 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (err) {
             console.log(err)
             const html = `<p> Erro ao carregar seção</p>`
+            return html
         }
     }
 
