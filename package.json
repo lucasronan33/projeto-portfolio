@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack": "webpack -w"
+    "dev": "webpack -w --mode development",	
+    "prod": "webpack -w --mode production",
+    "vercel": "webpack --mode production && vercel --prod"
   },
   "keywords": [],
   "author": "",

@@ -2,7 +2,7 @@ const path = require("path");
 
 module.exports = {
     mode: "production",
-    entry: path.resolve("frontend", "assets", "js", "lazyLoading"),
+    entry: path.resolve(__dirname, "frontend", "assets", "js", "lazyLoading"),
 
     output: {
         path: path.resolve("./", "public", "assets", "js"),
@@ -16,7 +16,7 @@ module.exports = {
                 use: {
                     loader: "babel-loader",
                     options: {
-                        presets: ["@babel/env"]
+                        presets: ["@babel/preset-env"]
                     }
                 }
             }
