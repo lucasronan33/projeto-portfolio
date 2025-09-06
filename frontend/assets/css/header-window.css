@@ -54,7 +54,7 @@
             display: flex;
 
 
-            * {
+            div {
                 max-width: calc(100%/3);
                 max-height: 100%;
                 aspect-ratio: 1 / 1;
@@ -64,6 +64,10 @@
 
                 &:hover {
                     background-color: rgba(128, 128, 128, 0.3);
+                }
+
+                &.close:hover {
+                    background-color: rgba(255, 0, 0, 0.3);
                 }
 
                 svg {
