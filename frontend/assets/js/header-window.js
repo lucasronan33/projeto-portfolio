@@ -2,18 +2,21 @@ export function headerWindow() {
 
     const divControlesAba = document.querySelectorAll('.divControlesAba')
 
-    divControlesAba.forEach(div => {
-        div.addEventListener('click', e => {
+    divControlesAba.forEach(divPai => {
+        divPai.querySelectorAll('div').forEach(div => {
 
-            // alert('Calma lá amigão, essa função ainda não estra pronta 🤨')
-            const target = e.target
-            console.log(e.target)
-            console.log(target.class)
-            if (e.target.class === 'minimize') {
-                console.log('minimize')
-            }
+            div.addEventListener('click', e => {
+
+                // alert('Calma lá amigão, essa função ainda não estra pronta 🤨')
+
+                console.log(div.className)
+                console.log(e)
+                if (div.className === 'close') {
+                    console.log('close')
+                    console.log(divPai.parentNode.parentNode.style.display = 'none')
+                }
+            })
+
         })
-
-        const divPai = div.parentNode.parentNode
     })
 }

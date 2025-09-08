@@ -228,17 +228,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 function headerWindow() {
   var divControlesAba = document.querySelectorAll('.divControlesAba');
-  divControlesAba.forEach(function (div) {
-    div.addEventListener('click', function (e) {
-      // alert('Calma lá amigão, essa função ainda não estra pronta 🤨')
-      var target = e.target;
-      console.log(e.target);
-      console.log(target["class"]);
-      if (e.target["class"] === 'minimize') {
-        console.log('minimize');
-      }
+  divControlesAba.forEach(function (divPai) {
+    divPai.querySelectorAll('div').forEach(function (div) {
+      div.addEventListener('click', function (e) {
+        // alert('Calma lá amigão, essa função ainda não estra pronta 🤨')
+
+        console.log(div.className);
+        console.log(e);
+        if (div.className === 'close') {
+          console.log('close');
+          console.log(divPai.parentNode.parentNode.style.display = 'none');
+        }
+      });
     });
-    var divPai = div.parentNode.parentNode;
   });
 }
 
