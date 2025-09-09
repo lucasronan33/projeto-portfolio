@@ -233,11 +233,42 @@ function headerWindow() {
       div.addEventListener('click', function (e) {
         // alert('Calma lá amigão, essa função ainda não estra pronta 🤨')
 
-        console.log(div.className);
-        console.log(e);
-        if (div.className === 'close') {
-          console.log('close');
-          console.log(divPai.parentNode.parentNode.style.display = 'none');
+        if (div.className === 'minimize') {
+          var corpoPagina = divPai.parentNode.parentNode.childNodes;
+          corpoPagina.forEach(function (el) {
+            if (el.classList && !el.classList.contains('header-window')) {
+              console.log('el.classList: ', el.classList);
+              Object.assign(el.style, {
+                transform: 'scaleY(0)',
+                height: '0px'
+              });
+              Object.assign(el.parentNode.style, {
+                paddingBottom: '0px',
+                height: 'fit-content'
+              });
+              console.log(el.style.transform);
+              console.log(el.parentNode);
+              el.parentNode.scrollIntoView({
+                behavior: "smooth",
+                block: "end"
+              });
+            }
+          });
+        }
+        if (div.className === 'maximize') {
+          var _corpoPagina = divPai.parentNode.parentNode.childNodes;
+          _corpoPagina.forEach(function (el) {
+            if (el.classList && !el.classList.contains('header-window')) {
+              el.style.removeProperty('transform');
+              el.style.removeProperty('height');
+              el.parentNode.style.removeProperty('padding-bottom');
+              el.parentNode.style.removeProperty('height');
+            }
+            el.parentNode.scrollIntoView({
+              behavior: "smooth",
+              block: "start"
+            });
+          });
         }
       });
     });
