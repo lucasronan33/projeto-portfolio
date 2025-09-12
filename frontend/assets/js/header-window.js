@@ -25,12 +25,14 @@ export function headerWindow() {
                                 width: '100%',
                                 transform: 'scaleY(0)',
                                 height: '0px',
+                                paddingBottom: '2vh',
                             })
 
                             Object.assign(el.parentNode.style, {
                                 width: '30%',
                                 left: `${contador.size * 30}%`,
                                 height: 'fit-content',
+                                paddingBottom: '0px',
                                 position: 'fixed',
                                 bottom: '0',
                                 zIndex: '9',
