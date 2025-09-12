@@ -80,13 +80,7 @@
 
 body {
     width: 100%;
-    /* background-image: url(../img/wireframepng.png); */
     background-color: #0C0C0C;
-
-    * {
-        /* background-color: red;
-        opacity: 0.75; */
-    }
 
     &.no-scroll {
         overflow: hidden;

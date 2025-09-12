@@ -1,3 +1,4 @@
+const contador = new Map()
 export function headerWindow() {
 
     const divControlesAba = document.querySelectorAll('.divControlesAba')
@@ -9,32 +10,37 @@ export function headerWindow() {
 
                 // alert('Calma lá amigão, essa função ainda não estra pronta 🤨')
 
+                const corpoPagina = divPai.parentNode.parentNode.childNodes
                 if (div.className === 'minimize') {
 
-                    const corpoPagina = divPai.parentNode.parentNode.childNodes
                     corpoPagina.forEach(el => {
+                        if (el.classList && !el.classList.contains('header-window') && el.style.height !== '0px' && el.style.display !== 'none') {
 
-                        if (el.classList && !el.classList.contains('header-window')) {
-                            console.log('el.classList: ', el.classList)
-
+                            (function verificaMap() {
+                                contador.forEach((value, key) => {
+                                    !document.body.contains(key) ? contador.delete(key) : {}
+                                })
+                            })()
                             Object.assign(el.style, {
+                                width: '100%',
                                 transform: 'scaleY(0)',
                                 height: '0px',
                             })
 
                             Object.assign(el.parentNode.style, {
-                                paddingBottom: '0px',
+                                width: '30%',
+                                left: `${contador.size * 30}%`,
                                 height: 'fit-content',
                                 position: 'fixed',
                                 bottom: '0',
                                 zIndex: '9',
                             })
-                            console.log(el.style.transform)
-                            console.log(el.parentNode)
 
                             el.parentNode.scrollIntoView({ behavior: "smooth", block: "end" })
-
-
+                            if (el.style.display !== 'none') {
+                                contador.set(el.parentNode, el)
+                                console.log('contador: ', contador)
+                            }
                         }
                     })
 
@@ -42,7 +48,6 @@ export function headerWindow() {
 
                 if (div.className === 'maximize') {
 
-                    const corpoPagina = divPai.parentNode.parentNode.childNodes
                     corpoPagina.forEach(el => {
 
                         if (el.classList && !el.classList.contains('header-window')) {
@@ -55,22 +60,21 @@ export function headerWindow() {
                             // maximiza a pagina minimizada (remove os estilos inline adicionados)
 
                             for (const prop of el.style) {
-                                console.log('style: ', prop)
-                                console.log('el: ', el)
                                 if (prop !== 'display') {
                                     el.style.removeProperty(prop)
+                                    console.log('removido: ', prop)
                                 }
                             }
 
                             for (const prop of el.parentNode.style) {
-                                console.log('style: ', prop)
                                 el.parentNode.style.removeProperty(prop)
-                                console.log('removido: ', prop)
 
                             }
                         }
 
                         el.parentNode.scrollIntoView({ behavior: "smooth", block: "start" })
+
+                        contador.delete(el.parentNode)
                     })
 
                 }
