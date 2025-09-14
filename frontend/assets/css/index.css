@@ -46,6 +46,21 @@
     border-right: 10px solid #fff;
 }
 
+.minimized {
+    width: 100% !important;
+    transform: scaleY(0) !important;
+    height: 0px !important;
+    padding-bottom: 2vh !important;
+}
+
+.minimized-parent {
+    width: 32% !important;
+    padding-bottom: 0 !important;
+    height: fit-content !important;
+    position: fixed !important;
+    bottom: 0 !important;
+}
+
 /* Animação de "digitar" */
 @keyframes typing {
     from {

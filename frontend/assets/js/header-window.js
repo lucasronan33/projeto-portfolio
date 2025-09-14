@@ -12,6 +12,8 @@ export function headerWindow() {
 
                 const corpoPagina = divPai.parentNode.parentNode.childNodes
                 if (div.className === 'minimize') {
+                    console.log(corpoPagina[0].parentNode)
+                    corpoPagina[0].parentNode.classList.add('minimized-parent')
 
                     corpoPagina.forEach(el => {
                         if (el.classList && !el.classList.contains('header-window') && el.style.height !== '0px' && el.style.display !== 'none') {
@@ -21,21 +23,12 @@ export function headerWindow() {
                                     !document.body.contains(key) ? contador.delete(key) : {}
                                 })
                             })()
-                            Object.assign(el.style, {
-                                width: '100%',
-                                transform: 'scaleY(0)',
-                                height: '0px',
-                                paddingBottom: '2vh',
-                            })
+
+                            el.classList.add('minimized')
 
                             Object.assign(el.parentNode.style, {
-                                width: '30%',
-                                left: `${contador.size * 30}%`,
-                                height: 'fit-content',
-                                paddingBottom: '0px',
-                                position: 'fixed',
-                                bottom: '0',
-                                zIndex: '9',
+                                left: `${contador.entries.length * 30}%`,
+                                zIndex: `${contador.size + 9}`,
                             })
 
                             el.parentNode.scrollIntoView({ behavior: "smooth", block: "end" })
@@ -43,12 +36,15 @@ export function headerWindow() {
                                 contador.set(el.parentNode, el)
                                 console.log('contador: ', contador)
                             }
+                            console.log('length: ', contador.entries.length)
                         }
                     })
 
                 }
 
                 if (div.className === 'maximize') {
+
+                    corpoPagina[0].parentNode.classList.remove('minimized-parent')
 
                     corpoPagina.forEach(el => {
 
@@ -61,17 +57,7 @@ export function headerWindow() {
 
                             // maximiza a pagina minimizada (remove os estilos inline adicionados)
 
-                            for (const prop of el.style) {
-                                if (prop !== 'display') {
-                                    el.style.removeProperty(prop)
-                                    console.log('removido: ', prop)
-                                }
-                            }
-
-                            for (const prop of el.parentNode.style) {
-                                el.parentNode.style.removeProperty(prop)
-
-                            }
+                            el.classList.remove('minimized')
                         }
 
                         el.parentNode.scrollIntoView({ behavior: "smooth", block: "start" })

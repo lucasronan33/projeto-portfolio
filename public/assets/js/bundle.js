@@ -226,9 +226,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   headerWindow: () => (/* binding */ headerWindow)
 /* harmony export */ });
-function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t["return"] || t["return"](); } finally { if (u) throw o; } } }; }
-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 var contador = new Map();
 function headerWindow() {
   var divControlesAba = document.querySelectorAll('.divControlesAba');
@@ -239,6 +236,8 @@ function headerWindow() {
 
         var corpoPagina = divPai.parentNode.parentNode.childNodes;
         if (div.className === 'minimize') {
+          console.log(corpoPagina[0].parentNode);
+          corpoPagina[0].parentNode.classList.add('minimized-parent');
           corpoPagina.forEach(function (el) {
             if (el.classList && !el.classList.contains('header-window') && el.style.height !== '0px' && el.style.display !== 'none') {
               (function verificaMap() {
@@ -246,20 +245,10 @@ function headerWindow() {
                   !document.body.contains(key) ? contador["delete"](key) : {};
                 });
               })();
-              Object.assign(el.style, {
-                width: '100%',
-                transform: 'scaleY(0)',
-                height: '0px',
-                paddingBottom: '2vh'
-              });
+              el.classList.add('minimized');
               Object.assign(el.parentNode.style, {
-                width: '30%',
-                left: "".concat(contador.size * 30, "%"),
-                height: 'fit-content',
-                paddingBottom: '0px',
-                position: 'fixed',
-                bottom: '0',
-                zIndex: '9'
+                left: "".concat(contador.entries.length * 30, "%"),
+                zIndex: "".concat(contador.size + 9)
               });
               el.parentNode.scrollIntoView({
                 behavior: "smooth",
@@ -269,44 +258,22 @@ function headerWindow() {
                 contador.set(el.parentNode, el);
                 console.log('contador: ', contador);
               }
+              console.log('length: ', contador.entries.length);
             }
           });
         }
         if (div.className === 'maximize') {
+          corpoPagina[0].parentNode.classList.remove('minimized-parent');
           corpoPagina.forEach(function (el) {
             if (el.classList && !el.classList.contains('header-window')) {
               // el.style.removeProperty('transform')
               // el.style.removeProperty('height')
               // el.parentNode.style.removeProperty('padding-bottom')
               // el.parentNode.style.removeProperty('height')
+
               // maximiza a pagina minimizada (remove os estilos inline adicionados)
-              var _iterator = _createForOfIteratorHelper(el.style),
-                _step;
-              try {
-                for (_iterator.s(); !(_step = _iterator.n()).done;) {
-                  var prop = _step.value;
-                  if (prop !== 'display') {
-                    el.style.removeProperty(prop);
-                    console.log('removido: ', prop);
-                  }
-                }
-              } catch (err) {
-                _iterator.e(err);
-              } finally {
-                _iterator.f();
-              }
-              var _iterator2 = _createForOfIteratorHelper(el.parentNode.style),
-                _step2;
-              try {
-                for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-                  var _prop = _step2.value;
-                  el.parentNode.style.removeProperty(_prop);
-                }
-              } catch (err) {
-                _iterator2.e(err);
-              } finally {
-                _iterator2.f();
-              }
+
+              el.classList.remove('minimized');
             }
             el.parentNode.scrollIntoView({
               behavior: "smooth",
