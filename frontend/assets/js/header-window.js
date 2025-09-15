@@ -12,9 +12,8 @@ export function headerWindow() {
 
                 const corpoPagina = divPai.parentNode.parentNode.childNodes
                 if (div.className === 'minimize') {
-                    console.log(corpoPagina[0].parentNode)
                     corpoPagina[0].parentNode.classList.add('minimized-parent')
-
+                    document.querySelector('.footer').appendChild(corpoPagina[0].parentNode)
                     corpoPagina.forEach(el => {
                         if (el.classList && !el.classList.contains('header-window') && el.style.height !== '0px' && el.style.display !== 'none') {
 
@@ -26,10 +25,10 @@ export function headerWindow() {
 
                             el.classList.add('minimized')
 
-                            Object.assign(el.parentNode.style, {
-                                left: `${contador.entries.length * 30}%`,
-                                zIndex: `${contador.size + 9}`,
-                            })
+                            // Object.assign(el.parentNode.style, {
+                            //     left: `${contador.size * 30}%`,
+                            //     zIndex: `${contador.size + 9}`,
+                            // })
 
                             el.parentNode.scrollIntoView({ behavior: "smooth", block: "end" })
                             if (el.style.display !== 'none') {
@@ -47,7 +46,7 @@ export function headerWindow() {
                     corpoPagina[0].parentNode.classList.remove('minimized-parent')
 
                     corpoPagina.forEach(el => {
-
+                        document.querySelector('#' + el.parentNode.dataset.class).appendChild(el.parentNode)
                         if (el.classList && !el.classList.contains('header-window')) {
 
                             // el.style.removeProperty('transform')

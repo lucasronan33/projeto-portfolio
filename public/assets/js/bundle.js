@@ -236,8 +236,8 @@ function headerWindow() {
 
         var corpoPagina = divPai.parentNode.parentNode.childNodes;
         if (div.className === 'minimize') {
-          console.log(corpoPagina[0].parentNode);
           corpoPagina[0].parentNode.classList.add('minimized-parent');
+          document.querySelector('.footer').appendChild(corpoPagina[0].parentNode);
           corpoPagina.forEach(function (el) {
             if (el.classList && !el.classList.contains('header-window') && el.style.height !== '0px' && el.style.display !== 'none') {
               (function verificaMap() {
@@ -246,10 +246,12 @@ function headerWindow() {
                 });
               })();
               el.classList.add('minimized');
-              Object.assign(el.parentNode.style, {
-                left: "".concat(contador.entries.length * 30, "%"),
-                zIndex: "".concat(contador.size + 9)
-              });
+
+              // Object.assign(el.parentNode.style, {
+              //     left: `${contador.size * 30}%`,
+              //     zIndex: `${contador.size + 9}`,
+              // })
+
               el.parentNode.scrollIntoView({
                 behavior: "smooth",
                 block: "end"
@@ -265,6 +267,7 @@ function headerWindow() {
         if (div.className === 'maximize') {
           corpoPagina[0].parentNode.classList.remove('minimized-parent');
           corpoPagina.forEach(function (el) {
+            document.querySelector('#' + el.parentNode.dataset["class"]).appendChild(el.parentNode);
             if (el.classList && !el.classList.contains('header-window')) {
               // el.style.removeProperty('transform')
               // el.style.removeProperty('height')
@@ -456,31 +459,40 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
 
 
 
-var observerMutations = new MutationObserver(function (mutations) {
-  mutations.forEach(function (mutation) {
-    if (mutation.type === 'childList') {
-      mutation.addedNodes.forEach(function (node) {
-        if (node.nodeType === 1) {
-          (0,_header_window_js__WEBPACK_IMPORTED_MODULE_0__.headerWindow)();
-          if (node.matches('.sobre')) {
-            (0,_sobre_js__WEBPACK_IMPORTED_MODULE_1__.sobre)();
-          } else if (node.matches('.galeria')) {
-            (0,_filtros_js__WEBPACK_IMPORTED_MODULE_4__.filtros)();
-            (0,_openTrabalho_js__WEBPACK_IMPORTED_MODULE_5__.openTrabalho)();
-            (0,_galeria_carrossel_js__WEBPACK_IMPORTED_MODULE_3__.galeria)();
-          } else if (node.matches('.contato')) {
-            (0,_contato_js__WEBPACK_IMPORTED_MODULE_2__.contato)();
-          }
-        }
-      });
-    }
-  });
-});
-observerMutations.observe(document.body, {
-  childList: true,
-  subtree: true
-});
+
+// const observerMutations = new MutationObserver(mutations => {
+//     mutations.forEach(mutation => {
+//         if (mutation.type === 'childList') {
+//             mutation.addedNodes.forEach(node => {
+//                 if (node.nodeType === 1) {
+//                     headerWindow()
+//                     if (node.matches('.sobre')) {
+//                         sobre()
+//                     } else if (node.matches('.galeria')) {
+//                         filtros()
+//                         openTrabalho()
+//                         galeria()
+//                     } else if (node.matches('.contato')) {
+//                         contato()
+//                     }
+//                 }
+//             })
+//         }
+//     })
+// })
+// observerMutations.observe(document.body, { childList: true, subtree: true })
 document.addEventListener('DOMContentLoaded', function () {
+  window.addEventListener('resize', function () {
+    resize();
+  });
+  resize();
+  function resize() {
+    if (window.innerWidth > window.innerHeight) {
+      document.querySelector('.footer').style.display = 'flex';
+    } else {
+      document.querySelector('.footer').style.display = 'block';
+    }
+  }
   var sections = document.querySelectorAll('.lazy-section');
 
   // Armazenamos os timers de cada seção
@@ -604,6 +616,17 @@ document.addEventListener('DOMContentLoaded', function () {
                   case 1:
                     html = _context3.v;
                     section.innerHTML = html;
+                    (0,_header_window_js__WEBPACK_IMPORTED_MODULE_0__.headerWindow)();
+                    console.log(section.id);
+                    if (section.id === 'sobre') {
+                      (0,_sobre_js__WEBPACK_IMPORTED_MODULE_1__.sobre)();
+                    } else if (section.id === 'galeria') {
+                      (0,_filtros_js__WEBPACK_IMPORTED_MODULE_4__.filtros)();
+                      (0,_openTrabalho_js__WEBPACK_IMPORTED_MODULE_5__.openTrabalho)();
+                      (0,_galeria_carrossel_js__WEBPACK_IMPORTED_MODULE_3__.galeria)();
+                    } else if (section.id === 'contato') {
+                      (0,_contato_js__WEBPACK_IMPORTED_MODULE_2__.contato)();
+                    }
                     return _context3.a(2, html);
                   case 2:
                     _context3.p = 2;

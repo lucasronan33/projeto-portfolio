@@ -6,28 +6,41 @@ import { filtros } from './filtros.js'
 import { openTrabalho } from './openTrabalho.js'
 import { windowCMD } from './animation-cmd.js'
 
-const observerMutations = new MutationObserver(mutations => {
-    mutations.forEach(mutation => {
-        if (mutation.type === 'childList') {
-            mutation.addedNodes.forEach(node => {
-                if (node.nodeType === 1) {
-                    headerWindow()
-                    if (node.matches('.sobre')) {
-                        sobre()
-                    } else if (node.matches('.galeria')) {
-                        filtros()
-                        openTrabalho()
-                        galeria()
-                    } else if (node.matches('.contato')) {
-                        contato()
-                    }
-                }
-            })
-        }
-    })
-})
-observerMutations.observe(document.body, { childList: true, subtree: true })
+// const observerMutations = new MutationObserver(mutations => {
+//     mutations.forEach(mutation => {
+//         if (mutation.type === 'childList') {
+//             mutation.addedNodes.forEach(node => {
+//                 if (node.nodeType === 1) {
+//                     headerWindow()
+//                     if (node.matches('.sobre')) {
+//                         sobre()
+//                     } else if (node.matches('.galeria')) {
+//                         filtros()
+//                         openTrabalho()
+//                         galeria()
+//                     } else if (node.matches('.contato')) {
+//                         contato()
+//                     }
+//                 }
+//             })
+//         }
+//     })
+// })
+// observerMutations.observe(document.body, { childList: true, subtree: true })
 document.addEventListener('DOMContentLoaded', () => {
+
+    window.addEventListener('resize', () => {
+        resize()
+    })
+    resize()
+
+    function resize() {
+        if (window.innerWidth > window.innerHeight) {
+            document.querySelector('.footer').style.display = 'flex'
+        } else {
+            document.querySelector('.footer').style.display = 'block'
+        }
+    }
 
     const sections = document.querySelectorAll('.lazy-section')
 
@@ -58,9 +71,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     // remove o timer depois da animação e para de observar
                     timers.delete(section)
                     obs.unobserve(section)
+
                 }, 500);// 0,5s de espera
 
                 timers.set(section, timer)
+
 
             } else {
                 // Se a seção saiu da tela antes do tempo, cancela o timer
@@ -76,6 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             observer.observe(section)
         }, 1000)
+
     })
 
 
@@ -108,6 +124,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 try {
                     const html = await fetchSection(url)
                     section.innerHTML = html
+
+                    headerWindow()
+                    console.log(section.id)
+                    if (section.id === 'sobre') {
+                        sobre()
+                    } else if (section.id === 'galeria') {
+                        filtros()
+                        openTrabalho()
+                        galeria()
+                    } else if (section.id === 'contato') {
+                        contato()
+                    }
                     return html
                 }
                 catch (err) {

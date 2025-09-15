@@ -51,14 +51,14 @@
     transform: scaleY(0) !important;
     height: 0px !important;
     padding-bottom: 2vh !important;
+    animation: none !important;
 }
 
 .minimized-parent {
-    width: 32% !important;
     padding-bottom: 0 !important;
     height: fit-content !important;
-    position: fixed !important;
-    bottom: 0 !important;
+    animation: none !important;
+    box-shadow: -5px 0 5px 0 rgba(100, 100, 100, 0.1);
 }
 
 /* Animação de "digitar" */
@@ -76,13 +76,11 @@
 
 @keyframes escala {
     from {
-        transform: scaleY(0);
-        transform-origin: top left;
+        transform: scale(0);
     }
 
     to {
-        transform: scaleY(100%);
-        transform-origin: top left;
+        transform: scale(100%);
     }
 }
 
@@ -90,7 +88,7 @@
 .trabalhos,
 .galeria,
 .contato {
-    animation: escala 0.75s ease-out forwards;
+    animation: escala 0.5s ease-out forwards;
 }
 
 body {
@@ -125,6 +123,14 @@ body {
 
     .btn-reload {
         bottom: 9vh;
+    }
+
+    .footer {
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        overflow: hidden;
+
     }
 
 }
