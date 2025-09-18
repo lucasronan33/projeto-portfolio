@@ -1,67 +1,79 @@
-.trabalhos {
+.corpo-cmd.trabalhos {
     width: 100%;
-    height: 100vh;
+    left: 0;
+    top: 0;
+    flex-direction: row;
+    background-color: black;
 
-    * {
-        display: flex;
-    }
+    content.content {
 
-    .titulo-trabalhos {
-        padding-top: 4vh;
-
-        * {
-            align-items: end;
-            padding: 0.5vh 1.3vh;
-        }
-
-        :first-child {
-            font-size: 1.5vh;
-            color: white;
-        }
-
-        :last-child {
-            font-size: 3vh;
-            line-height: 1;
-            font-family: "JetBrains ExtraBold";
-            color: white;
-        }
-
-    }
-
-    .content-trabalhos {
-        flex-direction: column;
-
-        .colunas-trabalhos {
-            width: 95%;
-            margin: auto;
-            padding-bottom: 2vh;
-            display: grid;
-            gap: 1.5vh;
-            grid-template-columns: 7vh 15vh auto;
-
-
-
-            div {
-                width: 100%;
-                flex-direction: column;
-                align-items: start;
-                justify-content: start;
-                color: white;
-                line-height: 1;
-
-            }
+        .trabalhos {
+            width: 100%;
+            height: 100vh;
+            display: initial;
 
             * {
-                font-size: 1.6vh;
-                font-weight: 900;
+                display: flex;
             }
-        }
 
-        .titulo-colunas-trabalhos {
-            padding-bottom: 2.5vh;
+            .titulo-trabalhos {
+                padding-top: 4vh;
 
-            &:first-child {
-                padding-top: 2vh;
+                * {
+                    align-items: end;
+                    padding: 0.5vh 1.3vh;
+                }
+
+                :first-child {
+                    font-size: 1.5vh;
+                    color: white;
+                }
+
+                :last-child {
+                    font-size: 3vh;
+                    line-height: 1;
+                    font-family: "JetBrains ExtraBold";
+                    color: white;
+                }
+
+            }
+
+            .content-trabalhos {
+                flex-direction: column;
+
+                .colunas-trabalhos {
+                    width: 95%;
+                    margin: auto;
+                    padding-bottom: 2vh;
+                    display: grid;
+                    gap: 1.5vh;
+                    grid-template-columns: 7vh 15vh auto;
+
+
+
+                    div {
+                        width: 100%;
+                        flex-direction: column;
+                        align-items: start;
+                        justify-content: start;
+                        color: white;
+                        line-height: 1;
+
+                    }
+
+                    * {
+                        font-size: 1.6vh;
+                        font-weight: 900;
+                    }
+                }
+
+                .titulo-colunas-trabalhos {
+                    padding-bottom: 2.5vh;
+
+                    &:first-child {
+                        padding-top: 2vh;
+                    }
+                }
             }
         }
     }

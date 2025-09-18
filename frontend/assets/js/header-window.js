@@ -15,7 +15,7 @@ export function headerWindow() {
                     corpoPagina[0].parentNode.classList.add('minimized-parent')
                     document.querySelector('.footer').appendChild(corpoPagina[0].parentNode)
                     corpoPagina.forEach(el => {
-                        if (el.classList && !el.classList.contains('header-window') && el.style.height !== '0px' && el.style.display !== 'none') {
+                        if (el.classList && !el.classList.contains('header-window') && el.style.height !== '0px') {
 
                             (function verificaMap() {
                                 contador.forEach((value, key) => {

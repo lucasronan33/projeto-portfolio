@@ -47,11 +47,14 @@
 }
 
 .minimized {
-    width: 100% !important;
-    transform: scaleY(0) !important;
+    transform: scale(0) !important;
     height: 0px !important;
     padding-bottom: 2vh !important;
     animation: none !important;
+
+    .tag {
+        width: 0;
+    }
 }
 
 .minimized-parent {
