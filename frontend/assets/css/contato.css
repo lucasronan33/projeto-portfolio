@@ -27,6 +27,17 @@
 
 
         }
+
+        input[name='enviaremail'] {
+            width: 50vw;
+            height: 1.5vh;
+            padding-left: 2vh;
+            border-radius: 0.25vh;
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.3);
+            border: 0;
+            color: #FEF08A;
+        }
     }
 
     /* Remove o background e define a cor do texto para todos os inputs que o Chrome autofill */

@@ -12,16 +12,33 @@
     --tag: var(--cor-bordas-linhas);
 }
 
+@media (width < 700px) {
+    .corpo-cmd {
+        .window-cmd {
+            width: 100%;
+            top: 0;
+            left: 0;
+        }
+    }
+}
+
+@media (width > 700px) {
+    .corpo-cmd {
+        .window-cmd {
+            width: 90%;
+            top: 5%;
+            left: 5%;
+        }
+    }
+}
+
 .corpo-cmd {
     /* background-color: black; */
     height: 100vh;
 
     .window-cmd {
-        width: 90%;
         overflow: hidden;
         position: relative;
-        top: 5%;
-        left: 5%;
         border: 1px solid rgb(33, 33, 33);
         background-color: black;
         border-radius: 2vh;

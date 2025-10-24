@@ -36,7 +36,7 @@
             display: flex;
             flex-direction: row;
             white-space: nowrap;
-            font-size: 1.57vh;
+            font-size: 2.5vw;
             font-weight: 800;
 
             text {
@@ -58,5 +58,11 @@
             }
         }
 
+    }
+}
+
+@media(width>700px) {
+    .text {
+        font-size: 1.57vw;
     }
 }
