@@ -63,6 +63,6 @@
 
 @media(width>700px) {
     .text {
-        font-size: 1.57vw;
+        font-size: 1.57vw !important;
     }
 }
